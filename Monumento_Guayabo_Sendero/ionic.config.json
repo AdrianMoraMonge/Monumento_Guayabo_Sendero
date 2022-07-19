@@ -1,0 +1,7 @@
+{
+  "name": "Monumento_Guayabo_Sendero",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
