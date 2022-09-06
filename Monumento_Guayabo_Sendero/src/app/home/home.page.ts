@@ -27,4 +27,10 @@ export class HomePage {
       name: [null, [Validators.required, Validators.minLength(3)]]
     });
   }
+
+  startTour(){
+    if(this.nameForm.valid) {
+      console.log(this.nameForm.value.name);
+    }
+  }
 }
