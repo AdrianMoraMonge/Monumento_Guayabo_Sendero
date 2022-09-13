@@ -1,0 +1,235 @@
+ion-content { 
+    --ion-background-color:#88B365; 
+}
+
+.title {
+    font-family: 'Martel Sans' !important;
+    margin: 1em auto 0;
+    text-align: center;
+    font-size: 2.2em;
+    color:#FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.imgMap {
+    margin-top: 50px;
+    width: 90%;
+}
+
+.subtitle {
+    font-family: 'Martel Sans' !important;
+    font-style: normal;
+    font-size: 1.8em;
+    margin-left: 20px;
+    margin-top: 100px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.secondSubtitle {
+    font-family: 'Martel Sans' !important;
+    font-style: normal;
+    font-size: 1.8em;
+    margin-left: 20px;
+    margin-top: 40px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.num {
+    font-family: 'Martel Sans' !important;
+    font-style: normal;
+    font-size: 1.2em;
+    margin-top: 4px;
+    margin-left: 29px;
+    z-index: 2;
+}
+
+.imgCircle {
+    position: absolute;
+    margin-top: 2px;
+    margin-left: 20px;
+    width: 30px;
+    z-index: 1;
+}
+
+.imgArrow {
+    margin-left: 25px;
+    width: 17px;
+}
+
+.stations {
+    font-family: 'Martel Sans' !important;
+    font-style: normal;
+    font-size: 1.2em;
+    margin-top: 4px;
+    margin-left: 20px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.signalsText {
+    font-family: 'Martel Sans' !important;
+    font-style: normal;
+    font-size: 1em;
+    margin-left: 10px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.signalsTextSecond {
+    margin-left: 12px;
+}
+
+.firstMargin {
+    margin-top: 22px;
+}
+
+.circleFirstMargin {
+    margin-top: 20px; 
+}
+
+.signals {
+    margin-left: 20px;
+}
+
+.itemButton {
+    margin: 50px auto 0;
+    height: 50px;
+    text-transform: none;
+    margin-bottom: 25px;
+}
+  
+.textButton {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px;
+    /* identical to box height, or 150% */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.15px;
+  
+    color: #FFFFFF;
+  
+  
+    /* Inside auto layout */
+  
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+@media screen and (min-width: 435px) {
+    .title {
+        font-family: 'Martel Sans' !important;
+        margin: 1em auto 0;
+        text-align: center;
+        font-size: 8vw;
+        color:#FFFFFF;
+    }
+
+    .subtitle {
+        font-family: 'Martel Sans' !important;
+        font-style: normal;
+        font-size: 6.52vw;
+        margin-left: 20px;
+        margin-top: 100px;
+        color: #FFFFFF;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .secondSubtitle {
+        font-family: 'Martel Sans' !important;
+        font-style: normal;
+        font-size: 6.52vw;
+        margin-left: 20px;
+        margin-top: 40px;
+        color: #FFFFFF;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .num {
+        font-family: 'Martel Sans' !important;
+        font-style: normal;
+        font-size: 4.4vw;
+        margin-top: 4px;
+        margin-left: 29px;
+        z-index: 2;
+    }
+
+    .numPadding {
+        padding-left: 0.3vw;
+    }
+    
+    .imgCircle {
+        position: absolute;
+        margin-top: 2px;
+        margin-left: 20px;
+        width: 7vw;
+        z-index: 1;
+    }
+
+    .imgArrow {
+        margin-left: 25px;
+        width: 4vw;
+    }
+
+    .signals {
+        font-size: 5.8vw;
+    }
+
+    .stations {
+        font-family: 'Martel Sans' !important;
+        font-style: normal;
+        font-size: 4.4vw;
+        margin-top: 4px;
+        margin-left: 4.8vw;
+        color: #FFFFFF;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .signalsText {
+        font-family: 'Martel Sans' !important;
+        font-style: normal;
+        font-size: 3.7vw;
+        margin-left: 10px;
+        padding-left: 1vw;
+        color: #FFFFFF;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .signalsTextSecond {
+        margin-left: 2.1vw;
+    }
+
+    .firstMargin {
+        margin-top: 22px;
+    }
+    
+    .circleFirstMargin {
+        margin-top: 20px; 
+    }
+
+    @media screen and (min-width: 535px) {
+        .numPadding {
+            padding-left: 0.7vw;
+        }
+    }
+
+    @media screen and (min-width: 610px) {
+        .numPadding {
+            padding-left: 1.1vw;
+        }
+    }
+
+    @media screen and (min-width: 1090px) {
+        .numPadding {
+            padding-left: 1.7vw;
+        }
+    }
+}
