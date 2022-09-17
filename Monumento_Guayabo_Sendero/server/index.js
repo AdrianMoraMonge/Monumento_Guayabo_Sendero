@@ -16,7 +16,7 @@ router.use((request, response, next) => {
 
 router.route('/addNewUser').post((request, response) => {
     Db.addNewUser(request.body).then((data) => {
-      response.json(data);
+      response.json(data[0]);
     })
 });
 

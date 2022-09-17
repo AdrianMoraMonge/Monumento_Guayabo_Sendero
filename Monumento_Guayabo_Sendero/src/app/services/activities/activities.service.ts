@@ -4,13 +4,13 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class ActivitiesService {
 
   readonly URL_API = 'http://localhost:8090/api';
 
   constructor(private http: HttpClient) { }
 
-  insertUser(token){ 
-    return this.http.post(this.URL_API + '/addNewUser', token);
+  checkFirstActivity(token){ 
+    return this.http.post(this.URL_API + '/checkFirstActivity', token);
   }
 }
