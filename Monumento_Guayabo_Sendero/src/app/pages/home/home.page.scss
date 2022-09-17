@@ -1,3 +1,6 @@
+ion-content { 
+  --ion-background-color:#9FC667; 
+}
 
 .title {
   font-family: Luckiest Guy !important;
@@ -14,10 +17,6 @@
 
 .itemHeader {
   margin-top: 25px;
-}
-
-ion-content { 
-  --ion-background-color:#9FC667; 
 }
 
 .imgDecoration {
@@ -67,6 +66,7 @@ ion-content {
   font-size: 16px;
   line-height: 24px;
   padding: 10px;
+  
   /* identical to box height, or 150% */
 
   display: flex;
@@ -75,7 +75,6 @@ ion-content {
   letter-spacing: 0.15px;
 
   color: #FFFFFF;
-
 
   /* Inside auto layout */
 
@@ -90,10 +89,12 @@ ion-content {
     font-size: 8vw;
     color:#5D9331;
   }
+
   .imgFeather {
     width: 30%;
     min-width: 1.5in;
   }
+  
   .itemHeader {
     margin-top: 25px;
   }
