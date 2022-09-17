@@ -15,11 +15,6 @@ const routes: Routes = [
     path: 'map',
     loadChildren: () => import('./pages/map/map.module').then( m => m.MapPageModule)
   },
-  {
-    path: 'first-activity',
-    loadChildren: () => import('./pages/first-activity/first-activity.module').then( m => m.FirstActivityPageModule)
-  },
-
 ];
 
 @NgModule({
