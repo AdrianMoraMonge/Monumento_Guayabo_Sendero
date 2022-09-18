@@ -46,7 +46,6 @@ export class HomePage {
 
   startTour(){
     if(this.nameForm.valid) {
-      console.log(this.nameForm.value.name);
       this.userService.insertUser({name: this.nameForm.value.name})
       .subscribe(res => {
         let list = res as [{Result}];

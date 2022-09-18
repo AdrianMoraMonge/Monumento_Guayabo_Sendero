@@ -26,6 +26,12 @@ router.route('/checkFirstActivity').post((request, response) => {
   })
 });
 
+router.route('/numberActivitiesSolved').post((request, response) => {
+  Db.numberActivitiesSolved(request.body).then((data) => {
+    response.json(data[0]);
+  })
+});
+
 var  port = process.env.PORT || 8090;
 app.listen(port);
 console.log('Order API is runnning at ' + port);

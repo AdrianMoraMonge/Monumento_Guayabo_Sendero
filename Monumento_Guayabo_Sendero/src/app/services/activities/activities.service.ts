@@ -13,4 +13,8 @@ export class ActivitiesService {
   checkFirstActivity(token){ 
     return this.http.post(this.URL_API + '/checkFirstActivity', token);
   }
+
+  numberActivitiesSolved(token){ 
+    return this.http.post(this.URL_API + '/numberActivitiesSolved', token);
+  }
 }
