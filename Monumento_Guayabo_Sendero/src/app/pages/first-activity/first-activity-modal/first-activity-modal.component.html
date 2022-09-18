@@ -1,0 +1,51 @@
+<!--<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Welcome</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()">Confirm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="stacked">Your name</ion-label>
+    <ion-input [(ngModel)]="name" placeholder="Your name"></ion-input>
+  </ion-item>
+</ion-content>-->
+<ion-content>
+  <ion-item color="none" lines="none">
+    <ion-text color="{{colorTitle}}" class="title">{{textTitle}}</ion-text>
+  </ion-item>
+
+  <ion-item color="none" lines="none">
+    <ion-text class="subtitle">Tipos de pico</ion-text>
+  </ion-item>
+
+  <ion-item color="none" lines="none">
+    <ion-text class="textBody firstColor">Ave 1 Cono</ion-text>
+  </ion-item>
+  <ion-item color="none" lines="none">
+    <ion-text class="textBody secondColor">Ave 2 Fuerte</ion-text>
+  </ion-item>
+  <ion-item color="none" lines="none">
+    <ion-text class="textBody thirdColor">Ave 3 Largo</ion-text>
+  </ion-item>
+
+  <ion-item color="none" lines="none">
+    <ion-text class="subtitle">Recuerda</ion-text>
+  </ion-item>
+
+  <ion-item color="none" lines="none">
+    <ion-img class="imgRemember" src="assets/first_remember.svg"></ion-img>
+  </ion-item>
+
+  <ion-item color="none" lines="none">
+    <ion-button class="itemButton" color="lightGreen" (click)="continue()">
+      <ion-text class="textButton">Listo</ion-text>
+    </ion-button>
+  </ion-item>
+
+</ion-content>

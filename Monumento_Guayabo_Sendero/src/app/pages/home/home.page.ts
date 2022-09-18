@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user/user.service';
 import { AlertController } from '@ionic/angular';
 import { CookieService } from 'ngx-cookie-service'; 
+import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +26,7 @@ export class HomePage {
       this.smallSize = false;
   }
 
-  constructor(private fb: FormBuilder, private userService: UserService, private alertController: AlertController, private cookieService: CookieService) {
+  constructor(private fb: FormBuilder, private userService: UserService, private alertController: AlertController, private cookieService: CookieService, private router: Router) {
     this.getScreenSize();
     this.nameForm = this.fb.group({
       name: [null, [Validators.required, Validators.minLength(3)]]
@@ -55,7 +56,7 @@ export class HomePage {
             const dateNow = new Date();
             dateNow.setMinutes(dateNow.getMinutes() + 120);
             this.cookieService.set('idUser', idUser, dateNow);
-            this.presentAlert('Vamos', 'Se inserto con éxito con id: ' + idUser);
+            this.router.navigateByUrl('map');
             return;
           }
         }

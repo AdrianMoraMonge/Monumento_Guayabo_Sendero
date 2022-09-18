@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivitiesService } from 'src/app/services/activities/activities.service';
 import { AlertController } from '@ionic/angular';
-import { CookieService } from 'ngx-cookie-service'; 
+import { CookieService } from 'ngx-cookie-service';
+import { ModalController } from '@ionic/angular';
+import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
+import { FirstActivityModalComponent } from './first-activity-modal/first-activity-modal.component'; 
 
 @Component({
   selector: 'app-first-activity',
@@ -15,7 +18,7 @@ export class FirstActivityPage implements OnInit {
   templates_crossword: string[][] = [["crossword_first.svg","crossword_first.svg","crossword_first.svg","crossword_third.svg","crossword_third.svg"], ["crossword_first.svg","crossword_third.svg","crossword_third.svg","crossword_third.svg","crossword_template.svg"], ["crossword_template.svg","crossword_second.svg","crossword_second.svg","crossword_second.svg","crossword_template.svg"], ["crossword_template.svg","crossword_second.svg","crossword_template.svg","crossword_second.svg","crossword_template.svg"], ["crossword_template.svg","crossword_second.svg","crossword_template.svg","crossword_template.svg","crossword_template.svg"]];
   user_response: string = "_________________________";
 
-  constructor(private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService) { }
+  constructor(private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) { }
 
   ngOnInit() {
   }
@@ -26,6 +29,28 @@ export class FirstActivityPage implements OnInit {
       header: title,
       message: msg,
       buttons: ['Entendido']
+  });
+    await alert.present();
+  }
+
+  public async confirmAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: "Confirmar",
+      message: "¿Estás seguro de tu respuesta?",
+      buttons: [
+        {
+          text: 'No, cancelar',
+          role: 'cancel',
+          cssClass: 'cancel-button',
+        },
+        {
+          text: 'Sí, confirmar',
+          handler: () => {
+            this.openModal(0);
+          }  
+        }
+      ]
   });
 
     await alert.present();
@@ -38,7 +63,7 @@ export class FirstActivityPage implements OnInit {
     else
     this.user_response = this.user_response.substring(0, i*5+j) + "_" + this.user_response.substring(i*5+j+1);
   }
-
+  
   completeActivity(){
     if(this.cookieService.check('idUser')) {
       this.activitiesService.checkFirstActivity({_idUser: this.cookieService.get('idUser'), answer: this.user_response, id_excercise: 1})
@@ -46,12 +71,8 @@ export class FirstActivityPage implements OnInit {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
             let points = list[0].Result;
-            if(points == 1){
-              this.presentAlert('Bien hecho', 'Tu respuesta fue correcta.');
-              return;
-            }
-            else if(points == 0){
-              this.presentAlert('Tu puedes', 'Fallaste.');
+            if(points >= 0){
+              this.openModal(points);
               return;
             }
           }
@@ -64,17 +85,30 @@ export class FirstActivityPage implements OnInit {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
             let points = list[0].Result;
-            if(points == 1){
-              this.presentAlert('Bien hecho', 'Tu respuesta fue correcta.');
-              return;
-            }
-            else if(points == 0){
-              this.presentAlert('Tu puedes', 'Fallaste.');
+            if(points >= 0){
+              this.openModal(points);
               return;
             }
           }
           this.presentAlert('Error', 'Ocurrió un error, intente de nuevo.');
       });
     }
+  }
+
+  async openModal(_points: number) {
+    const modal = await this.modalCtrl.create({
+      cssClass: 'remember_modal',
+      component: FirstActivityModalComponent,
+      componentProps: {
+        points: _points
+      }
+    });
+    modal.present();
+    const {data, role} = await modal.onWillDismiss();
+    if(role == "continue"){
+      this.router.navigateByUrl("map");
+      return;
+    }
+    this.openModal(_points);
   }
 }
