@@ -110,7 +110,6 @@ export class FirstActivityPage implements OnInit {
     if(this.cookieService.check('idUser')) {
       this.activitiesService.numberActivitiesSolved({_idUser: this.cookieService.get('idUser')})
         .subscribe(res => {
-          console.log(res);
           let list = res as [{Result}];
           if(list != null && list.length > 0){
             let activitiesSolved = list[0].Result;
