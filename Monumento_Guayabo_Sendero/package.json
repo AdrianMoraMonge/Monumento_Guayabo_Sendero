@@ -30,6 +30,7 @@
     "mssql": "^8.1.2",
     "ngx-cookie-service": "^14.0.1",
     "rxjs": "~6.6.0",
+    "rxjs-compat": "^6.6.7",
     "sequelize": "^6.21.3",
     "sqlite3": "^5.0.10",
     "tedious": "^15.0.0",

@@ -4,31 +4,25 @@ import { AlertController } from '@ionic/angular';
 import { CookieService } from 'ngx-cookie-service';
 import { ModalController } from '@ionic/angular';
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
-import { FirstActivityModalComponent } from './first-activity-modal/first-activity-modal.component';
 import { Subscription } from 'rxjs-compat/Subscription';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/filter'; 
 
 @Component({
-  selector: 'app-first-activity',
-  templateUrl: './first-activity.page.html',
-  styleUrls: ['./first-activity.page.scss'],
+  selector: 'app-second-activity',
+  templateUrl: './second-activity.page.html',
+  styleUrls: ['./second-activity.page.scss'],
 })
-export class FirstActivityPage implements OnInit {
-
-  crossword: string[][] = [["O","N","O","A","L"], ["C","O","G","R","I"], ["O","E","R","T","E"], ["T","U","N","E","A"], ["C","F","G","I","R"]];
-  showLetters: boolean[][] = [[false,false,false,false,false], [false,false,false,false,false], [false,false,false,false,false], [false,false,false,false,false], [false,false,false,false,false]];
-  templates_crossword: string[][] = [["crossword_first.svg","crossword_first.svg","crossword_first.svg","crossword_third.svg","crossword_third.svg"], ["crossword_first.svg","crossword_third.svg","crossword_third.svg","crossword_third.svg","crossword_template.svg"], ["crossword_template.svg","crossword_second.svg","crossword_second.svg","crossword_second.svg","crossword_template.svg"], ["crossword_template.svg","crossword_second.svg","crossword_template.svg","crossword_second.svg","crossword_template.svg"], ["crossword_template.svg","crossword_second.svg","crossword_template.svg","crossword_template.svg","crossword_template.svg"]];
-  user_response: string = "_________________________";
+export class SecondActivityPage implements OnInit {
   private _routerSub = Subscription.EMPTY;
 
   constructor(private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
     this._routerSub = this.router.events
-      .filter(event => event instanceof NavigationEnd && event.url == '/first-activity')
+      .filter(event => event instanceof NavigationEnd && event.url == '/second-activity')
       .subscribe((value) => {
         this.confirmTour();
     });
-   }
+  }
 
   ngOnInit() {
   }
@@ -57,7 +51,7 @@ export class FirstActivityPage implements OnInit {
         {
           text: 'Sí, confirmar',
           handler: () => {
-            this.completeActivity();
+            //this.completeActivity();
           }  
         }
       ]
@@ -66,39 +60,12 @@ export class FirstActivityPage implements OnInit {
     await alert.present();
   }
 
-  markLetter(i, j){
-    this.showLetters[i][j] = !this.showLetters[i][j];
-    if(this.showLetters[i][j])
-      this.user_response = this.user_response.substring(0, i*5+j) + this.crossword[i][j] + this.user_response.substring(i*5+j+1);
-    else
-    this.user_response = this.user_response.substring(0, i*5+j) + "_" + this.user_response.substring(i*5+j+1);
-  }
-
   back(){
     this.router.navigateByUrl("map");
   }
-  
-  completeActivity(){
-    if(this.cookieService.check('idUser')) {
-      this.activitiesService.checkFirstActivity({_idUser: this.cookieService.get('idUser'), answer: this.user_response, id_excercise: 1})
-        .subscribe(res => {
-          let list = res as [{Result}];
-          if(list != null && list.length > 0){
-            let points = list[0].Result;
-            if(points >= 0){
-              this.openModal(points);
-              return;
-            }
-          }
-          this.presentAlert('Error', 'Ocurrió un error, intente de nuevo.');
-      });
-    }
-    else
-      this.router.navigateByUrl('home');
-  }
 
   async openModal(_points: number) {
-    const modal = await this.modalCtrl.create({
+    /*const modal = await this.modalCtrl.create({
       cssClass: 'remember_modal',
       component: FirstActivityModalComponent,
       componentProps: {
@@ -111,7 +78,7 @@ export class FirstActivityPage implements OnInit {
       this.router.navigateByUrl("map");
       return;
     }
-    this.openModal(_points);
+    this.openModal(_points);*/
   }
 
   confirmTour(){
@@ -121,7 +88,7 @@ export class FirstActivityPage implements OnInit {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
             let activitiesSolved = list[0].Result;
-            if(activitiesSolved >= 1){
+            if(activitiesSolved != 1){
               this.router.navigateByUrl('map');
             }
             return;

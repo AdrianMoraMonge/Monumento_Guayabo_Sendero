@@ -19,6 +19,11 @@ const routes: Routes = [
     path: 'first-activity',
     loadChildren: () => import('./pages/first-activity/first-activity.module').then( m => m.FirstActivityPageModule)
   },
+  {
+    path: 'second-activity',
+    loadChildren: () => import('./pages/second-activity/second-activity.module').then( m => m.SecondActivityPageModule)
+  },
+
 
 ];
 
