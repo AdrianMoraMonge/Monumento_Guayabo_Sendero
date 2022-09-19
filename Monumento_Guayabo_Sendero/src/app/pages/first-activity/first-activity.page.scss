@@ -92,6 +92,7 @@ ion-toolbar, ion-header {
     margin: 0;
     min-width: 208px;
     margin-left: 14vw;
+    min-height: 230px;
 }
 
 .firstGrid {
@@ -102,6 +103,7 @@ ion-toolbar, ion-header {
 
 .divSecondGrid {
     margin: 0 auto;
+    overflow-x: scroll;
 }
 
 .divfirstGrid {
@@ -110,6 +112,10 @@ ion-toolbar, ion-header {
 }
 
 .secondLetters {
+    cursor: pointer;
+}
+
+.lettersGrid {
     font-family: 'Martel Sans';
     position: absolute;
     font-size: 25px;
@@ -185,7 +191,7 @@ ion-toolbar, ion-header {
 }
 
 .itemButton {
-    margin: 50px auto 0;
+    margin: 50px auto 20px;
     height: 50px;
     text-transform: none;
 }
@@ -212,6 +218,13 @@ ion-toolbar, ion-header {
     flex: none;
     order: 1;
     flex-grow: 0;
+}
+
+@media screen and (min-width: 340px) {
+    .divSecondGrid {
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
 }
 
 @media screen and (min-width: 378px) {

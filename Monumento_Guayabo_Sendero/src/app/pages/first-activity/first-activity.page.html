@@ -3,7 +3,7 @@
     <ion-grid class="gridHeader">
       <ion-row>
         <ion-col size="auto">
-          <ion-icon class="arrowIcon" name="arrow-back"></ion-icon>
+          <ion-icon (click)="back()" class="arrowIcon" name="arrow-back"></ion-icon>
         </ion-col>
         <ion-col size="1.4" size-sm="1" size-md="0.8" size-lg="0.6" size-xl="0.4">
           <ion-text class="headerNumber">2</ion-text>
@@ -52,7 +52,7 @@
               </ion-col>
 
               <ion-col *ngFor="let letter of letters; let j = index" size="1">
-                <ion-text *ngIf="showLetters[i][j]" class="secondLetters"><ion-text *ngIf="letter == 'I'">&nbsp;</ion-text>{{letter}}</ion-text>
+                <ion-text *ngIf="showLetters[i][j]" class="lettersGrid"><ion-text *ngIf="letter == 'I'">&nbsp;</ion-text>{{letter}}</ion-text>
                 <ion-img class="imgcrosswordTemp" src="assets/{{templates_crossword[i][j]}}"></ion-img>
               </ion-col>
 
@@ -77,7 +77,7 @@
           <ion-grid class="secondGrid">
             <ion-row *ngFor="let letters of crossword let i = index">
               <ion-col *ngFor="let letter of letters; let j = index" size="1.9">
-                <ion-text class="secondLetters" (click)="markLetter(i, j)"><ion-text *ngIf="letter == 'I'">&nbsp;</ion-text>{{letter}}</ion-text>
+                <ion-text class="lettersGrid secondLetters" (click)="markLetter(i, j)"><ion-text *ngIf="letter == 'I'">&nbsp;</ion-text>{{letter}}</ion-text>
                 <ion-img class="imgcrosswordTemp" src="assets/crossword_template.svg"></ion-img>
               </ion-col>
             </ion-row>
@@ -86,7 +86,7 @@
       </ion-item>
 
       <ion-item color="none" lines="none">
-        <ion-button class="itemButton" color="lightGreen" (click)="completeActivity()">
+        <ion-button class="itemButton" color="lightGreen" (click)="confirmAlert()">
           <ion-text class="textButton">Listo</ion-text>
         </ion-button>
       </ion-item>
