@@ -1,0 +1,53 @@
+ion-content { 
+    --ion-background-color:#E7D7BF; 
+}
+
+ion-toolbar, ion-header {
+    --min-height: 100px;
+}
+
+.header {
+    --background: rgba(175, 210, 139, 0.877);
+}
+
+.arrowIcon {
+    font-size: 35px;
+}
+
+.headerText {
+    font-family: 'Signika' !important;
+    font-size: 1.8em;
+    color: #FBFBFB;
+}
+
+.headerNumber {
+    position: absolute;
+    font-family: 'Signika' !important;
+    font-size: 1.8em;
+    margin-left: 11px;
+    color: #FBFBFB;
+    z-index: 3;
+}
+
+.imgCircleLight {
+    position: absolute;
+    width: 37px;
+    z-index: 1;
+}
+
+.imgCircleDark {
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 3.9px;
+    width: 29px;
+    z-index: 2;
+}
+
+.cardBody {
+    background: #FFFFFF;
+    margin: 40px 30px;
+}
+
+.gridHeader {
+    margin-top: 48px;
+}
