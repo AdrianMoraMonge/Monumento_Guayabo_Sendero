@@ -65,7 +65,6 @@ export class MapPage implements OnInit {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
             let activitiesSolved = list[0].Result;
-            console.log(activitiesSolved);
             if(activitiesSolved >= 0){
               this.next_activity = activitiesSolved;
               this.current_map = this.maps[activitiesSolved];

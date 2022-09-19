@@ -88,7 +88,7 @@ export class SecondActivityPage implements OnInit {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
             let activitiesSolved = list[0].Result;
-            if(activitiesSolved >= 1){
+            if(activitiesSolved != 1){
               this.router.navigateByUrl('map');
             }
             return;
