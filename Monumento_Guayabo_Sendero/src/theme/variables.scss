@@ -3,6 +3,38 @@
 
 /** Ionic CSS Variables **/
 :root {
+  /** darkGreen **/
+  --ion-color-darkGreen: #5D9331;
+  --ion-color-darkGreen-rgb: 56, 128, 255;
+  --ion-color-darkGreen-contrast: #ffffff;
+  --ion-color-darkGreen-contrast-rgb: 255, 255, 255;
+  --ion-color-darkGreen-shade: #55852d;
+  --ion-color-darkGreen-tint: #6ba73a;
+
+  /** lightGreen **/
+  --ion-color-lightGreen: #B0CF6F;
+  --ion-color-lightGreen-rgb: 56, 128, 255;
+  --ion-color-lightGreen-contrast: #ffffff;
+  --ion-color-lightGreen-contrast-rgb: 255, 255, 255;
+  --ion-color-lightGreen-shade: #96ae61;
+  --ion-color-lightGreen-tint: #cbee7f;
+
+  /** correctAnswer **/
+  --ion-color-correctAnswer: #9FC667;
+  --ion-color-correctAnswer-rgb: 56, 128, 255;
+  --ion-color-correctAnswer-contrast: #ffffff;
+  --ion-color-correctAnswer-contrast-rgb: 255, 255, 255;
+  --ion-color-correctAnswer-shade: #85a557;
+  --ion-color-correctAnswer-tint: #b8e677;
+
+  /** statementGreen **/
+  --ion-color-statementGreen: rgba(175, 210, 139, 0.54);
+  --ion-color-statementGreen-rgb: 56, 128, 255;
+  --ion-color-statementGreen-contrast: #ffffff;
+  --ion-color-statementGreen-contrast-rgb: 255, 255, 255;
+  --ion-color-statementGreen-shade: rgba(161, 193, 128, 0.54);
+  --ion-color-statementGreen-tint: rgba(191, 228, 155, 0.656);
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -74,6 +106,42 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+}
+
+.ion-color-darkGreen {
+  --ion-color-base: var(--ion-color-darkGreen) !important;
+  --ion-color-base-rgb: var(--ion-color-darkGreen-rgb) !important;
+  --ion-color-contrast: var(--ion-color-darkGreen-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-darkGreen-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-darkGreen-shade) !important;
+  --ion-color-tint: var(--ion-color-darkGreen-tint) !important;
+}
+
+.ion-color-lightGreen {
+  --ion-color-base: var(--ion-color-lightGreen) !important;
+  --ion-color-base-rgb: var(--ion-color-lightGreen-rgb) !important;
+  --ion-color-contrast: var(--ion-color-lightGreen-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-lightGreen-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-lightGreen-shade) !important;
+  --ion-color-tint: var(--ion-color-lightGreen-tint) !important;
+}
+
+.ion-color-statementGreen {
+  --ion-color-base: var(--ion-color-statementGreen) !important;
+  --ion-color-base-rgb: var(--ion-color-statementGreen-rgb) !important;
+  --ion-color-contrast: var(--ion-color-statementGreen-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-statementGreen-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-statementGreen-shade) !important;
+  --ion-color-tint: var(--ion-color-statementGreen-tint) !important;
+}
+
+.ion-color-correctAnswer {
+  --ion-color-base: var(--ion-color-correctAnswer) !important;
+  --ion-color-base-rgb: var(--ion-color-correctAnswer-rgb) !important;
+  --ion-color-contrast: var(--ion-color-correctAnswer-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-correctAnswer-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-correctAnswer-shade) !important;
+  --ion-color-tint: var(--ion-color-correctAnswer-tint) !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -232,5 +300,27 @@
     --ion-tab-bar-background: #1f1f1f;
 
     --ion-card-background: #1e1e1e;
+  }
+
+  .remember_modal {
+    --width: 50vw;
+    --min-width: 250px;
+    --height: 600px;
+    --border-radius: 10px;
+    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+    --margin-top: 150px;
+  }
+
+  .alert_style {
+    --background: #ffffff;
+    --color: #000000;
+ 
+    .alert-message {
+      color: #000000;
+    }
+
+    .alert-title{
+      color: #000000;
+    }
   }
 }

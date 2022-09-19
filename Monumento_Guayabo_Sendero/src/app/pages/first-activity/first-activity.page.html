@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-grid class="gridHeader">
+      <ion-row>
+        <ion-col size="auto">
+          <ion-icon (click)="back()" class="arrowIcon" name="arrow-back"></ion-icon>
+        </ion-col>
+        <ion-col size="1.4" size-sm="1" size-md="0.8" size-lg="0.6" size-xl="0.4">
+          <ion-text class="headerNumber">2</ion-text>
+          <ion-img class="imgCircleLight" src="assets/light_green_circle.svg"></ion-img>
+          <ion-img class="imgCircleDark" src="assets/dark_green_circle.svg"></ion-img>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-text class="headerText">Alimentación</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="cardBody">
+    <ion-card-content>
+      <ion-item class="statement" color="statementGreen" lines="none">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="auto">
+              <ion-icon color="darkGreen" class="caretIcon" name="caret-forward"></ion-icon>
+            </ion-col>
+            <ion-col>
+              <ion-text class="statementText">Descubramos que <b>tipo de pico</b> tienen las aves desaparecidas.</ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <ion-text class="bodyTitle"><b>Sigue el camino</b></ion-text>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <ion-text class="explanatoryText">Siga el recorrido de los cuadros de color de la primera tabla y <b class="explanatoryTextBold">seleccione letra por letra</b> en la segunda tabla. <b class="explanatoryTextBold">Lee las letras en la dirección de cada fecha</b> y encontrarás la respuesta.</ion-text>
+      </ion-item>
+
+      <ion-item class="itemFirstGrid" color="none" lines="none">
+        <div class="divfirstGrid">
+          <ion-grid class="firstGrid" size='auto'>
+            <ion-row *ngFor="let letters of crossword; let i = index" size='auto'>
+              <ion-col size="1.6">
+                <ion-text *ngIf="i == 2" class="firstBirdText">ave 1</ion-text>
+                <ion-icon *ngIf="i == 1" class="firstBirdArrow" name="return-up-forward"></ion-icon>
+              </ion-col>
+
+              <ion-col *ngFor="let letter of letters; let j = index" size="1">
+                <ion-text *ngIf="showLetters[i][j]" class="lettersGrid"><ion-text *ngIf="letter == 'I'">&nbsp;</ion-text>{{letter}}</ion-text>
+                <ion-img class="imgcrosswordTemp" src="assets/{{templates_crossword[i][j]}}"></ion-img>
+              </ion-col>
+
+              <ion-col size="1.6">
+                <ion-text *ngIf="i == 1" class="thirdBirdText">ave 3</ion-text>
+                <ion-icon *ngIf="i == 0" class="thirdBirdArrow" name="return-up-back"></ion-icon>
+              </ion-col>
+            </ion-row>
+
+            <ion-row size='auto'>
+              <ion-col *ngFor="let letter of crossword[0]; let i = index" size="1.4">
+                <ion-text *ngIf="i == 3" class="secondBirdText">ave 2</ion-text>
+                <ion-img *ngIf="i == 2" class="secondBirdArrow" src="assets/arrow_up.svg"></ion-img>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-item>
+
+      <ion-item class="itemSecondGrid" color="none" lines="none">
+        <div class="divSecondGrid">
+          <ion-grid class="secondGrid">
+            <ion-row *ngFor="let letters of crossword let i = index">
+              <ion-col *ngFor="let letter of letters; let j = index" size="1.9">
+                <ion-text class="lettersGrid secondLetters" (click)="markLetter(i, j)"><ion-text *ngIf="letter == 'I'">&nbsp;</ion-text>{{letter}}</ion-text>
+                <ion-img class="imgcrosswordTemp" src="assets/crossword_template.svg"></ion-img>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <ion-button class="itemButton" color="lightGreen" (click)="confirmAlert()">
+          <ion-text class="textButton">Listo</ion-text>
+        </ion-button>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
