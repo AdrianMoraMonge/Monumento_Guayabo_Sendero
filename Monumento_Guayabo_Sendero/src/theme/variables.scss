@@ -310,4 +310,17 @@
     --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
     --margin-top: 150px;
   }
+
+  .alert_style {
+    --background: #ffffff;
+    --color: #000000;
+ 
+    .alert-message {
+      color: #000000;
+    }
+
+    .alert-title{
+      color: #000000;
+    }
+  }
 }

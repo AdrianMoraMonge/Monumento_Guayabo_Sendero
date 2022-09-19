@@ -22,6 +22,4 @@ export class FirstActivityModalComponent implements OnInit {
   continue() {
     return this.modalCtrl.dismiss(null, 'continue');
   }
-
-
 }

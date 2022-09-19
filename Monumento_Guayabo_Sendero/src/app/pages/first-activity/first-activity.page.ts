@@ -18,14 +18,16 @@ export class FirstActivityPage implements OnInit {
   templates_crossword: string[][] = [["crossword_first.svg","crossword_first.svg","crossword_first.svg","crossword_third.svg","crossword_third.svg"], ["crossword_first.svg","crossword_third.svg","crossword_third.svg","crossword_third.svg","crossword_template.svg"], ["crossword_template.svg","crossword_second.svg","crossword_second.svg","crossword_second.svg","crossword_template.svg"], ["crossword_template.svg","crossword_second.svg","crossword_template.svg","crossword_second.svg","crossword_template.svg"], ["crossword_template.svg","crossword_second.svg","crossword_template.svg","crossword_template.svg","crossword_template.svg"]];
   user_response: string = "_________________________";
 
-  constructor(private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) { }
+  constructor(private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
+    this.confirmTour();
+   }
 
   ngOnInit() {
   }
 
   public async presentAlert(title: string, msg: string) {
     const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
+      cssClass: 'alert_style',
       header: title,
       message: msg,
       buttons: ['Entendido']
@@ -35,7 +37,7 @@ export class FirstActivityPage implements OnInit {
 
   public async confirmAlert() {
     const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
+      cssClass: 'alert_style',
       header: "Confirmar",
       message: "¿Estás seguro de tu respuesta?",
       buttons: [
@@ -47,7 +49,7 @@ export class FirstActivityPage implements OnInit {
         {
           text: 'Sí, confirmar',
           handler: () => {
-            this.openModal(0);
+            this.completeActivity();
           }  
         }
       ]
@@ -62,6 +64,10 @@ export class FirstActivityPage implements OnInit {
       this.user_response = this.user_response.substring(0, i*5+j) + this.crossword[i][j] + this.user_response.substring(i*5+j+1);
     else
     this.user_response = this.user_response.substring(0, i*5+j) + "_" + this.user_response.substring(i*5+j+1);
+  }
+
+  back(){
+    this.router.navigateByUrl("map");
   }
   
   completeActivity(){
@@ -79,20 +85,8 @@ export class FirstActivityPage implements OnInit {
           this.presentAlert('Error', 'Ocurrió un error, intente de nuevo.');
       });
     }
-    else {
-      this.activitiesService.checkFirstActivity({_idUser: 4, answer: this.user_response, id_excercise: 1})
-        .subscribe(res => {
-          let list = res as [{Result}];
-          if(list != null && list.length > 0){
-            let points = list[0].Result;
-            if(points >= 0){
-              this.openModal(points);
-              return;
-            }
-          }
-          this.presentAlert('Error', 'Ocurrió un error, intente de nuevo.');
-      });
-    }
+    else
+      this.router.navigateByUrl('home');
   }
 
   async openModal(_points: number) {
@@ -110,5 +104,25 @@ export class FirstActivityPage implements OnInit {
       return;
     }
     this.openModal(_points);
+  }
+
+  confirmTour(){
+    if(this.cookieService.check('idUser')) {
+      this.activitiesService.numberActivitiesSolved({_idUser: this.cookieService.get('idUser')})
+        .subscribe(res => {
+          console.log(res);
+          let list = res as [{Result}];
+          if(list != null && list.length > 0){
+            let activitiesSolved = list[0].Result;
+            if(activitiesSolved >= 1){
+              this.router.navigateByUrl('map');
+            }
+            return;
+          }
+          this.presentAlert('Error', 'Ocurrió un error, intente de nuevo.');
+      });
+      return;
+    }
+    this.router.navigateByUrl('home');
   }
 }

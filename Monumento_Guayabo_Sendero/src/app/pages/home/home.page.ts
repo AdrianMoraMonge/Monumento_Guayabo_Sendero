@@ -35,7 +35,7 @@ export class HomePage {
 
   public async presentAlert(title: string, msg: string) {
     const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
+      cssClass: 'alert_style',
       header: title,
       message: msg,
       buttons: ['Entendido']

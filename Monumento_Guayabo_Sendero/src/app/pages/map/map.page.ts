@@ -24,7 +24,7 @@ export class MapPage implements OnInit {
 
   public async presentAlert(title: string, msg: string) {
     const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
+      cssClass: 'alert_style',
       header: title,
       message: msg,
       buttons: ['Entendido']
@@ -58,11 +58,10 @@ export class MapPage implements OnInit {
           if(list != null && list.length > 0){
             let activitiesSolved = list[0].Result;
             if(activitiesSolved >= 0){
-              console.log(activitiesSolved);
               this.next_activity = activitiesSolved;
               this.current_map = this.maps[activitiesSolved];
-              return;
             }
+            return;
           }
           this.presentAlert('Error', 'Ocurrió un error, intente de nuevo.');
       });
