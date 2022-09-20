@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ActivitiesService {
 
-  readonly URL_API = 'http://localhost:8090/api';
+  readonly URL_API = 'https://sendero-guayabo.herokuapp.com/api';
 
   constructor(private http: HttpClient) { }
 
