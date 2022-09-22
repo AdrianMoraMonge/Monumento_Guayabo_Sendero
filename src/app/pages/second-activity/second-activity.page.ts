@@ -3,6 +3,7 @@ import { ActivitiesService } from 'src/app/services/activities/activities.servic
 import { AlertController } from '@ionic/angular';
 import { CookieService } from 'ngx-cookie-service';
 import { ModalController } from '@ionic/angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
 import { Subscription } from 'rxjs-compat/Subscription';
 import 'rxjs/add/operator/do';
@@ -14,13 +15,23 @@ import 'rxjs/add/operator/filter';
   styleUrls: ['./second-activity.page.scss'],
 })
 export class SecondActivityPage implements OnInit {
+  codeForm: FormGroup;
+  birdArrow: string[] = ["firstBirdArrow", "secondBirdArrow", "thirdBirdArrow"];
+  birdText: string[] = ["firstBirdText", "secondBirdText", "thirdBirdText"];
+  clues: string[] = ["aterrador", "chillido", "silbido"];
+  colors: string[] = ["firstBirdColor", "secondBirdColor", "thirdBirdColor"];
+  textButton: string[] = ["Siguiente", "Siguiente", "Listo"];
+  numBird: number = 0;
   private _routerSub = Subscription.EMPTY;
 
-  constructor(private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
+  constructor(private fb: FormBuilder, private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
     this._routerSub = this.router.events
       .filter(event => event instanceof NavigationEnd && event.url == '/second-activity')
       .subscribe((value) => {
-        this.confirmTour();
+        //this.confirmTour();
+    });
+    this.codeForm = this.fb.group({
+      code: [null, [Validators.required, Validators.minLength(3)]]
     });
   }
 

@@ -35,6 +35,30 @@
   --ion-color-statementGreen-shade: rgba(161, 193, 128, 0.54);
   --ion-color-statementGreen-tint: rgba(191, 228, 155, 0.656);
 
+  /** firstBirdColor **/
+  --ion-color-firstBirdColor: #88CFE5;
+  --ion-color-firstBirdColor-rgb: 56, 128, 255;
+  --ion-color-firstBirdColor-contrast: #ffffff;
+  --ion-color-firstBirdColor-contrast-rgb: 255, 255, 255;
+  --ion-color-firstBirdColor-shade: #6ea7b9;
+  --ion-color-firstBirdColor-tint: #99e7ff;
+  
+  /** secondBirdColor **/
+  --ion-color-secondBirdColor: #B6AAD4;
+  --ion-color-secondBirdColor-rgb: 56, 128, 255;
+  --ion-color-secondBirdColor-contrast: #ffffff;
+  --ion-color-secondBirdColor-contrast-rgb: 255, 255, 255;
+  --ion-color-secondBirdColor-shade: #9c91b8;
+  --ion-color-secondBirdColor-tint: #d0c1f7;
+
+  /** thirdBirdColor **/
+  --ion-color-thirdBirdColor: #B2DAC8;
+  --ion-color-thirdBirdColor-rgb: 56, 128, 255;
+  --ion-color-thirdBirdColor-contrast: #ffffff;
+  --ion-color-thirdBirdColor-contrast-rgb: 255, 255, 255;
+  --ion-color-thirdBirdColor-shade: #96bdac;
+  --ion-color-thirdBirdColor-tint: #bdeed8;
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -142,6 +166,33 @@
   --ion-color-contrast-rgb: var(--ion-color-correctAnswer-contrast-rgb) !important;
   --ion-color-shade: var(--ion-color-correctAnswer-shade) !important;
   --ion-color-tint: var(--ion-color-correctAnswer-tint) !important;
+}
+
+.ion-color-firstBirdColor {
+  --ion-color-base: var(--ion-color-firstBirdColor) !important;
+  --ion-color-base-rgb: var(--ion-color-firstBirdColor-rgb) !important;
+  --ion-color-contrast: var(--ion-color-firstBirdColor-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-firstBirdColor-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-firstBirdColor-shade) !important;
+  --ion-color-tint: var(--ion-color-firstBirdColor-tint) !important;
+}
+
+.ion-color-secondBirdColor {
+  --ion-color-base: var(--ion-color-secondBirdColor) !important;
+  --ion-color-base-rgb: var(--ion-color-secondBirdColor-rgb) !important;
+  --ion-color-contrast: var(--ion-color-secondBirdColor-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-secondBirdColor-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-secondBirdColor-shade) !important;
+  --ion-color-tint: var(--ion-color-secondBirdColor-tint) !important;
+}
+
+.ion-color-thirdBirdColor {
+  --ion-color-base: var(--ion-color-thirdBirdColor) !important;
+  --ion-color-base-rgb: var(--ion-color-thirdBirdColor-rgb) !important;
+  --ion-color-contrast: var(--ion-color-thirdBirdColor-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-thirdBirdColor-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-thirdBirdColor-shade) !important;
+  --ion-color-tint: var(--ion-color-thirdBirdColor-tint) !important;
 }
 
 @media (prefers-color-scheme: dark) {

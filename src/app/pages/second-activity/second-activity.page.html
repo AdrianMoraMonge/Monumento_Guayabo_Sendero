@@ -21,7 +21,63 @@
 <ion-content>
   <ion-card class="cardBody">
     <ion-card-content>
+      <ion-item class="statement" color="statementGreen" lines="none">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="auto">
+              <ion-icon color="darkGreen" class="caretIcon" name="caret-forward"></ion-icon>
+            </ion-col>
+            <ion-col>
+              <ion-text class="statementText">Conocer cómo es <b>el canto</b> nos puede ayudar a identifcarlas.</ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
 
+      <ion-item color="none" lines="none">
+        <ion-text class="bodyTitle"><b>Código secreto</b></ion-text>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <ion-text class="explanatoryText">Resuelve el <b class="explanatoryTextBold">código secreto</b> cambiando los números por las letras que se indican en el cuadro.</ion-text>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <ion-img class="imgSecretCode" src="assets/decryptor.svg"></ion-img>
+      </ion-item>
+
+      <section *ngFor="let bird of birdArrow; let i = index">
+      <ion-item *ngIf="i == numBird" color="none">
+        <div class="divSecretCode">
+          <ion-text *ngIf="i == 0" class="secretCode firstSecretCode">7</ion-text><ion-text *ngIf="i == 0 && i == numBird">&nbsp;</ion-text><ion-text *ngIf="i == 0 && i == numBird" class="secretCode thirdSecretCode">5</ion-text><ion-text *ngIf="i == 0 && i == numBird">&nbsp;</ion-text><ion-text *ngIf="i == 0 && i == numBird" class="secretCode firstSecretCode">1</ion-text><ion-text *ngIf="i == 0 && i == numBird">&nbsp;</ion-text><ion-text *ngIf="i == 0 && i == numBird" class="secretCode fourSecretCode">2</ion-text><ion-text *ngIf="i == 0 && i == numBird">&nbsp;</ion-text><ion-text *ngIf="i == 0 && i == numBird" class="secretCode firstSecretCode">5</ion-text>
+          <ion-text *ngIf="i == 1" class="secretCode thirdSecretCode">3</ion-text><ion-text *ngIf="i == 1 && i == numBird">&nbsp;</ion-text><ion-text *ngIf="i == 1 && i == numBird" class="secretCode thirdSecretCode">2</ion-text><ion-text *ngIf="i == 1 && i == numBird">&nbsp;</ion-text><ion-text *ngIf="i == 1 && i == numBird" class="secretCode thirdSecretCode">7</ion-text><ion-text *ngIf="i == 1 && i == numBird">&nbsp;</ion-text><ion-text *ngIf="i == 1 && i == numBird" class="secretCode firstSecretCode">5</ion-text><ion-text *ngIf="i == 1 && i == numBird">&nbsp;</ion-text><ion-text *ngIf="i == 1 && i == numBird" class="secretCode secondSecretCode">7</ion-text><ion-text *ngIf="i == 1 && i == numBird">&nbsp;</ion-text><ion-text *ngIf="i == 1 && i == numBird" class="secretCode thirdSecretCode">7</ion-text><ion-text *ngIf="i == 1 && i == numBird">&nbsp;</ion-text><ion-text *ngIf="i == 1 && i == numBird" class="secretCode firstSecretCode">5</ion-text>
+          <ion-text *ngIf="i == 2" class="secretCode firstSecretCode">1</ion-text><ion-text *ngIf="i == 2 && i == numBird">&nbsp;</ion-text><ion-text *ngIf="i == 2 && i == numBird" class="secretCode firstSecretCode">7</ion-text><ion-text *ngIf="i == 2 && i == numBird">&nbsp;</ion-text><ion-text *ngIf="i == 2 && i == numBird" class="secretCode fourSecretCode">1</ion-text><ion-text *ngIf="i == 2 && i == numBird">&nbsp;</ion-text><ion-text *ngIf="i == 2 && i == numBird" class="secretCode firstSecretCode">4</ion-text><ion-text *ngIf="i == 2 && i == numBird">&nbsp;</ion-text><ion-text *ngIf="i == 2 && i == numBird" class="secretCode thirdSecretCode">2</ion-text>
+          <ion-icon class="{{birdArrow[i]}}" name="return-down-forward"></ion-icon>
+          <ion-text class="{{birdText[i]}}">ave {{i+1}}</ion-text>
+          <ion-text class="clue">&nbsp;{{clues[i]}}</ion-text>
+        </div>
+      </ion-item>
+      </section>
+
+      <form [formGroup]="codeForm">
+        <ion-item class="itemInput" color="none">
+          <ion-label color="{{colors[numBird]}}" class="inputElement" position="floating">Escribe el código</ion-label>
+          <ion-input type="name" formControlName="code" color="{{colors[numBird]}}" class="inputElement"></ion-input>
+        </ion-item>
+    
+        <!-- Validation incorrect -->
+        <ion-item color="none" lines="none">
+          <ion-text class="itemMsg" *ngIf="!codeForm.get('code').valid && codeForm.get('code').touched" color="danger">
+            Ingrese su nombre para comenzar.
+          </ion-text>
+        </ion-item>
+      </form>
+
+      <ion-item color="none" lines="none">
+        <ion-button class="itemButton" color="lightGreen" (click)="confirmAlert()">
+          <ion-text class="textButton">{{textButton[numBird]}}</ion-text>
+        </ion-button>
+      </ion-item>
     </ion-card-content>
   </ion-card>
 </ion-content>
