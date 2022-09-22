@@ -62,13 +62,13 @@
       <form [formGroup]="codeForm">
         <ion-item class="itemInput" color="none">
           <ion-label color="{{colors[numBird]}}" class="inputElement" position="floating">Escribe el código</ion-label>
-          <ion-input type="name" formControlName="code" color="{{colors[numBird]}}" class="inputElement"></ion-input>
+          <ion-input [ngModel]="inputText" type="name" formControlName="code" color="{{colors[numBird]}}" class="inputElement"></ion-input>
         </ion-item>
     
         <!-- Validation incorrect -->
         <ion-item color="none" lines="none">
           <ion-text class="itemMsg" *ngIf="!codeForm.get('code').valid && codeForm.get('code').touched" color="danger">
-            Ingrese su nombre para comenzar.
+            Ingrese el código.
           </ion-text>
         </ion-item>
       </form>

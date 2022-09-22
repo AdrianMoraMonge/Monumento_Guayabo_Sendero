@@ -1,0 +1,83 @@
+ion-content { 
+    --ion-background-color:#FFFFFF; 
+}
+
+.title {
+    font-family: 'Signika';
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    font-size: 32px;
+    line-height: 120%;
+    margin: 30px auto;
+}
+
+.subtitle {
+    font-family: 'Signika';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 120%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #6F8F5B;
+}
+
+.textBody {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0 auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.firstColor {
+    color: #88CFE5;
+}
+
+.secondColor {
+    color: #B6AAD4;
+}
+
+.thirdColor {
+    color: #B2DAC8;
+}
+
+.imgRemember {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.itemButton {
+    margin: 50px auto 30px;
+    height: 50px;
+    text-transform: none;
+}
+  
+.textButton {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px;
+    
+    /* identical to box height, or 150% */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.15px;
+  
+    color: #FFFFFF;
+  
+    /* Inside auto layout */
+  
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
