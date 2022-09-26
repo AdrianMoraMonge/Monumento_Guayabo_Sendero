@@ -18,6 +18,7 @@ ion-toolbar, ion-header {
     font-family: 'Signika' !important;
     font-size: 1.8em;
     color: #FBFBFB;
+    margin-left: 3vw;
 }
 
 .headerNumber {
@@ -50,4 +51,328 @@ ion-toolbar, ion-header {
 
 .gridHeader {
     margin-top: 48px;
+}
+
+.statement {
+    background: rgba(175, 210, 139, 0.54);
+    border-radius: 8px;
+}
+
+.statementText {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-size: 16px;
+    color: #000000;
+}
+
+.caretIcon {
+    font-size: 25px;
+}
+
+.bodyTitle {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-size: 26px;
+    margin-top: 50px;
+    color: #E2822E;
+}
+
+.explanatoryText {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-size: 16px;
+    margin-top: 20px;
+    color: #A7A7A7;
+}
+
+.explanatoryTextBold {
+    color: #828282;
+}
+
+.imgSecretCode {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.divSecretCode {
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.secretCode {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 29px;
+    text-align: center;
+    text-decoration-line: underline;
+}
+
+.clue {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 29px;
+    text-align: center;
+    color: #A7A7A7;
+}
+
+.firstSecretCode {
+    color: #59B39E;
+}
+
+.secondSecretCode {
+    color: #18476D;
+}
+
+.thirdSecretCode {
+    color: #E3C754;
+}
+
+.fourSecretCode {
+    color: #D85C65;
+}
+
+.divBird {
+    margin: 0 auto;
+    margin-top: 0;
+    background: #D85C65;
+}
+
+.firstBirdText {
+    position: absolute;
+    margin-top: 27px;
+    margin-left: 67px;
+    font-family: 'Martel Sans';
+    font-size: 12px;
+    font-weight: 800;
+    color: #88CFE5;
+}
+
+.firstBirdArrow {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 37px;
+    color: #88CFE5;
+    font-size: 24px;
+    --ionicon-stroke-width: 50px;
+}
+
+.secondBirdText {
+    position: absolute;
+    margin-top: 27px;
+    margin-left: 45px;
+    font-family: 'Martel Sans';
+    font-size: 12px;
+    font-weight: 800;
+    color: #B6AAD4;
+}
+
+.secondBirdArrow {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 15px;
+    color: #B6AAD4;
+    font-size: 24px;
+    --ionicon-stroke-width: 50px;
+}
+
+.thirdBirdText {
+    position: absolute;
+    margin-top: 27px;
+    margin-left: 55px;
+    font-family: 'Martel Sans';
+    font-size: 12px;
+    font-weight: 800;
+    color: #B2DAC8;
+}
+
+.thirdBirdArrow {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 25px;
+    color: #B2DAC8;
+    font-size: 24px;
+    --ionicon-stroke-width: 50px;
+}
+
+.inputElement {
+    font-size: 15px;
+}
+  
+.itemInput {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.itemMsg {
+    font-size: 14px;
+    margin: 0 auto;
+}
+
+.itemButton {
+    margin: 50px auto 20px;
+    height: 50px;
+    text-transform: none;
+}
+  
+.textButton {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px;
+    
+    /* identical to box height, or 150% */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.15px;
+  
+    color: #FFFFFF;
+  
+    /* Inside auto layout */
+  
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+@media screen and (min-width: 280px) {
+    .inputElement {
+        font-size: 6vw;
+    }
+    
+    .itemMsg {
+        font-size: 5.6vw;
+        margin: 0 auto;
+    }
+
+    .secretCode {
+        font-size: 5.6vw;
+    }
+    
+    .clue {
+        font-size: 5.6vw;
+    }
+
+    .firstBirdText {
+        font-size: 4.2vw;
+        margin-left: 22vw;
+    }
+    
+    .firstBirdArrow {
+        font-size: 8.4vw;
+        margin-left: 13vw;
+    }
+
+    .secondBirdText {
+        font-size: 4.2vw;
+        margin-left: 16vw;
+    }
+    
+    .secondBirdArrow {
+        font-size: 8.4vw;
+        margin-left: 7vw;
+    }
+    
+    .thirdBirdText {
+        font-size: 4.2vw;
+        margin-left: 18vw;
+    }
+    
+    .thirdBirdArrow {
+        font-size: 8.4vw;
+        margin-left: 9vw;
+    }
+}
+
+@media screen and (min-width: 350px) {
+    .inputElement {
+        font-size: 22px;
+    }
+    
+    .itemMsg {
+        font-size: 21px;
+        margin: 0 auto;
+    }
+
+    .secretCode {
+        font-size: 22px;
+    }
+    
+    .clue {
+        font-size: 22px;
+    }
+
+    .firstBirdText {
+        font-size: 15px;
+    }
+    
+    .firstBirdArrow {
+        font-size: 30px;
+    }
+
+    .secondBirdText {
+        font-size: 15px;
+    }
+    
+    .secondBirdArrow {
+        font-size: 30px;
+    }
+
+    .thirdBirdText {
+        font-size: 15px;
+    }
+    
+    .thirdBirdArrow {
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width: 378px) {
+    .headerText {
+        font-family: 'Signika' !important;
+        font-size: 1.8em;
+        color: #FBFBFB;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 485px) {
+    .firstBirdText {
+        margin-left: 105px;
+    }
+    
+    .firstBirdArrow {
+        margin-left: 61px;
+    }
+
+    .secondBirdText {
+        margin-left: 105px;
+    }
+    
+    .secondBirdArrow {
+        margin-left: 61px;
+    }
+    
+    .thirdBirdText {
+        margin-left: 105px;
+    }
+    
+    .thirdBirdArrow {
+        margin-left: 61px;
+    }
+}
+
+@media screen and (min-width: 630px) {
+    .imgSecretCode {
+        width: 500px;
+    }
 }

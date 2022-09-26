@@ -3,6 +3,8 @@ import { ActivitiesService } from 'src/app/services/activities/activities.servic
 import { AlertController } from '@ionic/angular';
 import { CookieService } from 'ngx-cookie-service';
 import { ModalController } from '@ionic/angular';
+import { SecondActivityModalComponent } from './second-activity-modal/second-activity-modal.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
 import { Subscription } from 'rxjs-compat/Subscription';
 import 'rxjs/add/operator/do';
@@ -14,13 +16,24 @@ import 'rxjs/add/operator/filter';
   styleUrls: ['./second-activity.page.scss'],
 })
 export class SecondActivityPage implements OnInit {
+  codeForm: FormGroup;
+  birdArrow: string[] = ["firstBirdArrow", "secondBirdArrow", "thirdBirdArrow"];
+  birdText: string[] = ["firstBirdText", "secondBirdText", "thirdBirdText"];
+  clues: string[] = ["aterrador", "chillido", "silbido"];
+  colors: string[] = ["firstBirdColor", "secondBirdColor", "thirdBirdColor"];
+  textButton: string[] = ["Siguiente", "Siguiente", "Listo"];
+  numBird: number = 0;
+  user_response: string = "";
   private _routerSub = Subscription.EMPTY;
 
-  constructor(private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
+  constructor(private fb: FormBuilder, private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
     this._routerSub = this.router.events
       .filter(event => event instanceof NavigationEnd && event.url == '/second-activity')
       .subscribe((value) => {
         this.confirmTour();
+    });
+    this.codeForm = this.fb.group({
+      code: [null, [Validators.required, Validators.minLength(3)]]
     });
   }
 
@@ -41,7 +54,7 @@ export class SecondActivityPage implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'alert_style',
       header: "Confirmar",
-      message: "¿Estás seguro de tu respuesta?",
+      message: "¿Estás seguro de su respuesta?",
       buttons: [
         {
           text: 'No, cancelar',
@@ -51,7 +64,7 @@ export class SecondActivityPage implements OnInit {
         {
           text: 'Sí, confirmar',
           handler: () => {
-            //this.completeActivity();
+            this.completeActivity();
           }  
         }
       ]
@@ -65,9 +78,9 @@ export class SecondActivityPage implements OnInit {
   }
 
   async openModal(_points: number) {
-    /*const modal = await this.modalCtrl.create({
+    const modal = await this.modalCtrl.create({
       cssClass: 'remember_modal',
-      component: FirstActivityModalComponent,
+      component: SecondActivityModalComponent,
       componentProps: {
         points: _points
       }
@@ -78,7 +91,35 @@ export class SecondActivityPage implements OnInit {
       this.router.navigateByUrl("map");
       return;
     }
-    this.openModal(_points);*/
+    this.openModal(_points);
+  }
+
+  completeActivity(){
+    if(this.cookieService.check('idUser')) {
+      let response: string = ((this.codeForm.value.code).trim()).toLowerCase();
+      this.user_response += response.charAt(0).toUpperCase() + response.slice(1);
+      if(this.numBird < 2) {
+        this.user_response += "-";
+        this.numBird++;
+        this.codeForm.get("code").setValue("");
+        this.codeForm.get("code").markAsUntouched();
+        return;
+      }
+      this.activitiesService.checkFirstActivity({_idUser: this.cookieService.get('idUser'), answer: this.user_response, id_excercise: 2})
+        .subscribe(res => {
+          let list = res as [{Result}];
+          if(list != null && list.length > 0){
+            let points = list[0].Result;
+            if(points >= 0){
+              this.openModal(points);
+              return;
+            }
+          }
+          this.presentAlert('Error', 'Ocurrió un error, intente de nuevo.');
+      });
+    }
+    else
+      this.router.navigateByUrl('home');
   }
 
   confirmTour(){
