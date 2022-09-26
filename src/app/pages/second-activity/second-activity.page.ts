@@ -24,7 +24,6 @@ export class SecondActivityPage implements OnInit {
   textButton: string[] = ["Siguiente", "Siguiente", "Listo"];
   numBird: number = 0;
   user_response: string = "";
-  inputText: string = " ";
   private _routerSub = Subscription.EMPTY;
 
   constructor(private fb: FormBuilder, private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
@@ -102,7 +101,8 @@ export class SecondActivityPage implements OnInit {
       if(this.numBird < 2) {
         this.user_response += "-";
         this.numBird++;
-        this.inputText = "";
+        this.codeForm.get("code").setValue("");
+        this.codeForm.get("code").markAsUntouched();
         return;
       }
       this.activitiesService.checkFirstActivity({_idUser: this.cookieService.get('idUser'), answer: this.user_response, id_excercise: 2})
