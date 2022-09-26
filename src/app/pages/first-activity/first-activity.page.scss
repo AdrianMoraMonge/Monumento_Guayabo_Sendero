@@ -18,6 +18,7 @@ ion-toolbar, ion-header {
     font-family: 'Signika' !important;
     font-size: 1.8em;
     color: #FBFBFB;
+    margin-left: 3vw;
 }
 
 .headerNumber {
@@ -236,6 +237,13 @@ ion-toolbar, ion-header {
     .secondGrid {
         min-width: 208px;
         margin-left: 14vw;
+    }
+
+    .headerText {
+        font-family: 'Signika' !important;
+        font-size: 1.8em;
+        color: #FBFBFB;
+        margin: 0;
     }
 }
 

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-grid class="gridHeader">
+      <ion-row>
+        <ion-col size="auto">
+          <ion-icon (click)="back()" class="arrowIcon" name="arrow-back"></ion-icon>
+        </ion-col>
+        <ion-col size="1.4" size-sm="1" size-md="0.8" size-lg="0.6" size-xl="0.4">
+          <ion-text class="headerNumber">4</ion-text>
+          <ion-img class="imgCircleLight" src="assets/light_green_circle.svg"></ion-img>
+          <ion-img class="imgCircleDark" src="assets/dark_green_circle.svg"></ion-img>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-text class="headerText">Hábitos</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="cardBody">
+    <ion-card-content>
+      <ion-item class="statement" color="statementGreen" lines="none">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="auto">
+              <ion-icon color="darkGreen" class="caretIcon" name="caret-forward"></ion-icon>
+            </ion-col>
+            <ion-col>
+              <ion-text class="statementText">Hallemos el <b>color predominante</b> en cada una de ellas.</ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <ion-text class="bodyTitle"><b>Cuenta colores</b></ion-text>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <ion-text class="explanatoryText">Cuenta cuantos puntos hay de cada color. <b class="explanatoryTextBold">Los primeros 3 colores con más puntos</b>, corresponde al color que tiene cada ave.</ion-text>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
