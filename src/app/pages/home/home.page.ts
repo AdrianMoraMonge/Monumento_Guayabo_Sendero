@@ -14,8 +14,8 @@ import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '
 })
 export class HomePage {
   nameForm: FormGroup;
-  scrWidth:any;
-  smallSize:boolean = false;
+  scrWidth: any;
+  smallSize: boolean = false;
 
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?) {

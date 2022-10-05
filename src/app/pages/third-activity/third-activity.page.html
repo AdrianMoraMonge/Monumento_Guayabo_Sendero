@@ -7,8 +7,8 @@
         </ion-col>
         <ion-col size="1.4" size-sm="1" size-md="0.8" size-lg="0.6" size-xl="0.4">
           <ion-text class="headerNumber">4</ion-text>
-          <ion-img class="imgCircleLight" src="assets/light_green_circle.svg"></ion-img>
-          <ion-img class="imgCircleDark" src="assets/dark_green_circle.svg"></ion-img>
+          <ion-img class="imgLightCircle" src="assets/light_green_circle.svg"></ion-img>
+          <ion-img class="imgDarkCircle" src="assets/dark_green_circle.svg"></ion-img>
         </ion-col>
         <ion-col size="auto">
           <ion-text class="headerText">Hábitos</ion-text>
@@ -42,6 +42,44 @@
         <ion-text class="explanatoryText">Cuenta cuantos puntos hay de cada color. <b class="explanatoryTextBold">Los primeros 3 colores con más puntos</b>, corresponde al color que tiene cada ave.</ion-text>
       </ion-item>
 
+      <ion-item color="none" lines="none">
+        <ion-img class="imgPoints" src="assets/color_points.svg"></ion-img>
+      </ion-item>
+
+      <section class="sectionOptions" *ngFor="let option of listOptions; let i = index">
+        <ion-item color="none" lines="none">
+          <ion-text class="colorsText">Seleccione el color que aparece</ion-text>
+        </ion-item>
+
+        <ion-item *ngIf="this.smallSize" color="none" lines="none">
+          <ion-img class="imgTemplateColors" src="assets/number_template_for_colors.svg"></ion-img>
+          <ion-text class="colorsTextDown {{marginOptions[i]}}"><b class="explanatoryTextBold">{{listOptions[i]}}</b>ㅤveces: </ion-text>
+        </ion-item>
+
+        <ion-item *ngIf="this.smallSize" color="none" lines="none">
+          <ion-img class="optionsCircles" src="assets/brown_circle{{stateColors[i][0]}}" (click)="markOption(i,0)"></ion-img>
+          <ion-img class="optionsCircles" src="assets/green_circle{{stateColors[i][1]}}" (click)="markOption(i,1)"></ion-img>
+          <ion-img class="optionsCircles" src="assets/gray_circle{{stateColors[i][2]}}" (click)="markOption(i,2)"></ion-img>
+          <ion-img class="optionsCircles" src="assets/red_circle{{stateColors[i][3]}}" (click)="markOption(i,3)"></ion-img>
+          <ion-img class="optionsCircles" src="assets/yellow_circle{{stateColors[i][4]}}" (click)="markOption(i,4)"></ion-img>
+        </ion-item>
+
+        <ion-item *ngIf="!this.smallSize" color="none" lines="none">
+          <ion-img class="imgTemplateColors" src="assets/number_template_for_colors.svg"></ion-img>
+          <ion-text class="colorsTextDown {{marginOptions[i]}}"><b class="explanatoryTextBold">{{listOptions[i]}}</b>ㅤveces: </ion-text>
+          <ion-img class="optionsCircles" src="assets/brown_circle{{stateColors[i][0]}}" (click)="markOption(i,0)"></ion-img>
+          <ion-img class="optionsCircles" src="assets/green_circle{{stateColors[i][1]}}" (click)="markOption(i,1)"></ion-img>
+          <ion-img class="optionsCircles" src="assets/gray_circle{{stateColors[i][2]}}" (click)="markOption(i,2)"></ion-img>
+          <ion-img class="optionsCircles" src="assets/red_circle{{stateColors[i][3]}}" (click)="markOption(i,3)"></ion-img>
+          <ion-img class="optionsCircles" src="assets/yellow_circle{{stateColors[i][4]}}" (click)="markOption(i,4)"></ion-img>
+        </ion-item>
+      </section>
+
+      <ion-item color="none" lines="none">
+        <ion-button class="itemButton" color="lightGreen" (click)="confirmAlert()">
+          <ion-text class="textButton">Listo</ion-text>
+        </ion-button>
+      </ion-item>
     </ion-card-content>
   </ion-card>
 </ion-content>
