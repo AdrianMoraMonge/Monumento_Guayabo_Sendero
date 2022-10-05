@@ -15,14 +15,14 @@ async function addNewUser(req){
     }
 }
 
-async function checkFirstActivity(req){
+async function checkActivity(req){
     try {
         let  pool = await  sql.connect(config);
         let  user = await  pool.request()
             .input('id_User', sql.INT, req._idUser)
             .input('answerUser', sql.VarChar, req.answer)
             .input('idExcercise', sql.INT, req.id_excercise)
-            .query("EXEC checkFirstActivity @idUser = @id_User, @answer = @answerUser, @id_excercise = @idExcercise");
+            .query("EXEC checkActivity @idUser = @id_User, @answer = @answerUser, @id_excercise = @idExcercise");
         let points = user.recordsets;
         return points;
     } catch (error) {
@@ -45,6 +45,6 @@ async function numberActivitiesSolved(req){
     
 module.exports = {
     addNewUser: addNewUser,
-    checkFirstActivity: checkFirstActivity,
+    checkActivity: checkActivity,
     numberActivitiesSolved: numberActivitiesSolved
 }

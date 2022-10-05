@@ -20,8 +20,8 @@ router.route('/addNewUser').post((request, response) => {
     })
 });
 
-router.route('/checkFirstActivity').post((request, response) => {
-  Db.checkFirstActivity(request.body).then((data) => {
+router.route('/checkActivity').post((request, response) => {
+  Db.checkActivity(request.body).then((data) => {
     response.json(data[0]);
   })
 });

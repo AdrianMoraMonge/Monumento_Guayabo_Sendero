@@ -80,7 +80,7 @@ export class FirstActivityPage implements OnInit {
   
   completeActivity(){
     if(this.cookieService.check('idUser')) {
-      this.activitiesService.checkFirstActivity({_idUser: this.cookieService.get('idUser'), answer: this.user_response, id_excercise: 1})
+      this.activitiesService.checkActivity({_idUser: this.cookieService.get('idUser'), answer: this.user_response, id_excercise: 1})
         .subscribe(res => {
           let list = res as [{Result}];
           if(list != null && list.length > 0){

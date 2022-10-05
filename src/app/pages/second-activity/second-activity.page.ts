@@ -105,7 +105,7 @@ export class SecondActivityPage implements OnInit {
         this.codeForm.get("code").markAsUntouched();
         return;
       }
-      this.activitiesService.checkFirstActivity({_idUser: this.cookieService.get('idUser'), answer: this.user_response, id_excercise: 2})
+      this.activitiesService.checkActivity({_idUser: this.cookieService.get('idUser'), answer: this.user_response, id_excercise: 2})
         .subscribe(res => {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
