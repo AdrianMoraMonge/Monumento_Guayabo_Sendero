@@ -30,13 +30,13 @@ ion-toolbar, ion-header {
     z-index: 3;
 }
 
-.imgCircleLight {
+.imgLightCircle {
     position: absolute;
     width: 37px;
     z-index: 1;
 }
 
-.imgCircleDark {
+.imgDarkCircle {
     position: absolute;
     margin-top: 4px;
     margin-left: 3.9px;
@@ -87,4 +87,192 @@ ion-toolbar, ion-header {
 
 .explanatoryTextBold {
     color: #828282;
+}
+
+.imgPoints {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.colorsText {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-size: 16px;
+    margin-top: 50px;
+    color: #A7A7A7;
+}
+
+.imgTemplateColors {
+    position: absolute;
+    width: 35px;
+    z-index: 0;
+}
+
+.colorsTextDown {
+    position: relative;
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-size: 16px;
+    color: #A7A7A7;
+    z-index: 1;
+}
+
+.firstTextDown {
+    margin-left: 6px;
+}
+
+.secondThirdTextDown {
+    margin-left: 11px;
+}
+
+.optionsCircles {
+    margin-right: 4px;
+    margin-left: 4px;
+    width: 20px;
+}
+
+.itemButton {
+    margin: 50px auto 20px;
+    height: 50px;
+    text-transform: none;
+}
+  
+.textButton {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px;
+    
+    /* identical to box height, or 150% */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.15px;
+  
+    color: #FFFFFF;
+  
+    /* Inside auto layout */
+  
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+@media screen and (min-width: 361px) {
+    .optionsCircles {
+        margin-right: 4px;
+        margin-left: 4px;
+        width: 5.2vw;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .headerText {
+        margin-left: 2.5vw;
+    }
+
+    .statementText {
+        font-size: 4vw;
+    }
+
+    .bodyTitle {
+        font-size: 6.4vw;
+    }
+
+    .explanatoryText {
+        font-size: 4vw;
+    }
+
+    .colorsText {
+        font-size: 4vw;
+    }
+
+    .colorsTextDown {
+        font-size: 4vw;
+    }
+
+    .imgTemplateColors {
+        width: 8.5vw;
+    }
+
+    .optionsCircles {
+        margin-right: 4px;
+        margin-left: 4px;
+        width: 4.8vw;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .imgTemplateColors {
+        width: 8vw;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .headerText {
+        margin-left: 2vw;
+        font-size: 2em;
+    }
+
+    .statementText {
+        font-size: 3.5vw;
+    }
+
+    .caretIcon {
+        font-size: 5.5vw;
+    }
+
+    .bodyTitle {
+        font-size: 5.8vw;
+    }
+
+    .explanatoryText {
+        font-size: 3.5vw;
+    }
+
+    .colorsText {
+        font-size: 3.5vw;
+    }
+
+    .colorsTextDown {
+        font-size: 3.5vw;
+    }
+
+    .imgTemplateColors {
+        width: 7.5vw;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .statementText {
+        font-size: 22px;
+    }
+
+    .caretIcon {
+        font-size: 38px;
+    }
+
+    .bodyTitle {
+        font-size: 36px;
+    }
+
+    .explanatoryText {
+        font-size: 22px;
+    }
+
+    .colorsText {
+        font-size: 22px;
+    }
+
+    .colorsTextDown {
+        font-size: 22px;
+    }
+
+    .imgTemplateColors {
+        width: 42px;
+    }
 }

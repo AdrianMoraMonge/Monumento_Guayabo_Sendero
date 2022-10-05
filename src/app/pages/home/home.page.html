@@ -15,24 +15,24 @@
   </ion-item>
 
   <ion-item class="marginTopElements" color="none" lines="none">
-    <ion-text class="introductionText">Aventúrate en la experiencia de encontrar las aves perdidas por el recorrido. En cada estación encontrarás diferentes pruebas que debes superar, demuestra tus habilidades y aprende sobre las aves en el Monumento.</ion-text>
+    <ion-text class="introductionText">Aventúrese en la experiencia de encontrar las aves perdidas por el recorrido. En cada estación encontrará diferentes pruebas que debe superar, demuestre sus habilidades y aprenda sobre las aves en el Monumento.</ion-text>
   </ion-item>
 
   <ion-img class="marginTopElements" src="assets/Decoration.png"></ion-img>
 
   <ion-item class="marginTopElements" color="none" lines="none">
-    <ion-text class="introductionText">Escribe tu nombre para comenzar</ion-text>
+    <ion-text class="introductionText">Escriba su nombre para comenzar</ion-text>
   </ion-item>
   <form [formGroup]="nameForm">
     <ion-item class="itemInput" color="none">
-      <ion-label color="darkGreen" class="inputElement marginTopElements" position="floating">Escribe tu nombre</ion-label>
+      <ion-label color="darkGreen" class="inputElement marginTopElements" position="floating">Escriba su nombre</ion-label>
       <ion-input formControlName="name" color="darkGreen" class="inputElement"></ion-input>
     </ion-item>
 
     <!-- Validation incorrect -->
     <ion-item class="itemInput" color="none" lines="none">
       <ion-text class="itemInput" *ngIf="!nameForm.get('name').valid && nameForm.get('name').touched" color="danger">
-        <p>Ingresa tu nombre para comenzar.</p>
+        <p>Ingrese su nombre para comenzar.</p>
       </ion-text>
     </ion-item>
   </form>
