@@ -10,8 +10,8 @@ export class ActivitiesService {
 
   constructor(private http: HttpClient) { }
 
-  checkFirstActivity(token){ 
-    return this.http.post(this.URL_API + '/checkFirstActivity', token);
+  checkActivity(token){ 
+    return this.http.post(this.URL_API + '/checkActivity', token);
   }
 
   numberActivitiesSolved(token){ 
