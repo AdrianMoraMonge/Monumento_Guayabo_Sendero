@@ -42,6 +42,48 @@
         <ion-text class="explanatoryText">Ve anotando <b class="explanatoryTextBold">letra por letra abajo de los recuadros de colores</b>, según el color con que cuentan el orden de los recuadros.</ion-text>
       </ion-item>
 
+      <ion-item color="none" lines="none">
+        <ion-img class="imgStar" src="assets/star_letters.svg"></ion-img>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <div class="divLetters">
+        <ion-grid>
+          <ion-row>
+            <ion-col *ngFor="let color of colors; let i = index" size="{{colSize}}">
+              <ion-text *ngIf="this.user_response.length > i" class="imgText"><ion-text *ngIf="letters_solution.charAt(i) == 'I'">&nbsp;</ion-text>{{letters_solution.charAt(i)}}</ion-text>
+              <ion-img class="imgColor" src="assets/activity_five_{{colors[i]}}"></ion-img>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <ion-icon class="arrowBird" name="return-down-forward"></ion-icon>
+        <ion-text class="textBird">ave 1</ion-text>
+      </ion-item>
+
+      <form [formGroup]="wordForm">
+        <ion-item class="itemInput" color="none">
+          <ion-label color="firstBirdColor" class="inputElement" position="floating">Escribe la palabra</ion-label>
+          <ion-input (ngModelChange)="modelChanged($event)" onkeydown="return /[a-z,ñ]/i.test(event.key)" type="text" formControlName="word" color="firstBirdColor" class="inputElement"></ion-input>
+        </ion-item>
+    
+        <!-- Validation incorrect -->
+        <ion-item color="none" lines="none">
+          <ion-text class="itemMsg" *ngIf="!wordForm.get('word').valid && wordForm.get('word').touched" color="danger">
+            Ingrese la palabra.
+          </ion-text>
+        </ion-item>
+      </form>
+
+      <ion-item color="none" lines="none">
+        <ion-button class="itemButton" color="lightGreen" (click)="confirmAlert()">
+          <ion-text class="textButton">Listo</ion-text>
+        </ion-button>
+      </ion-item>
+
     </ion-card-content>
   </ion-card>
 </ion-content>

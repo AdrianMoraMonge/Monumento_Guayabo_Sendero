@@ -39,7 +39,7 @@ export class ThirdActivityPage implements OnInit {
     this._routerSub = this.router.events
       .filter(event => event instanceof NavigationEnd && event.url == '/first-activity')
       .subscribe((value) => {
-        this.confirmTour();
+        //this.confirmTour();
     });
     this.getScreenSize();
    }

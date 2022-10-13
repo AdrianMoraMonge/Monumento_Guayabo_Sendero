@@ -51,6 +51,10 @@ export class SecondActivityPage implements OnInit {
   }
 
   public async confirmAlert() {
+    if(!this.codeForm.get("code").valid) {
+      this.presentAlert("Error", "Ingrese el código.");
+      return;
+    }
     const alert = await this.alertController.create({
       cssClass: 'alert_style',
       header: "Confirmar",
@@ -68,7 +72,7 @@ export class SecondActivityPage implements OnInit {
           }  
         }
       ]
-  });
+    });
 
     await alert.present();
   }
