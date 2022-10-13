@@ -4,7 +4,7 @@ import { AlertController } from '@ionic/angular';
 import { CookieService } from 'ngx-cookie-service';
 import { ModalController } from '@ionic/angular';
 //import { FifthActivityModalComponent } from './fifth-activity-modal/fifth-activity-modal.component';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+//import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
 import { Subscription } from 'rxjs-compat/Subscription';
 import 'rxjs/add/operator/do';
@@ -18,9 +18,9 @@ import 'rxjs/add/operator/filter';
 export class FifthActivityPage implements OnInit {
   private _routerSub = Subscription.EMPTY;
 
-  constructor(private fb: FormBuilder, private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
+  constructor(private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
     this._routerSub = this.router.events
-      .filter(event => event instanceof NavigationEnd && event.url == '/first-activity')
+      .filter(event => event instanceof NavigationEnd && event.url == '/fifth-activity')
       .subscribe((value) => {
         //this.confirmTour();
     });

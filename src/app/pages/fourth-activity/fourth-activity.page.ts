@@ -37,7 +37,7 @@ export class FourthActivityPage implements OnInit {
 
   constructor(private fb: FormBuilder, private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
     this._routerSub = this.router.events
-      .filter(event => event instanceof NavigationEnd && event.url == '/first-activity')
+      .filter(event => event instanceof NavigationEnd && event.url == '/fourth-activity')
       .subscribe((value) => {
         this.confirmTour();
     });
