@@ -188,14 +188,14 @@ ion-toolbar, ion-header {
     font-family: 'Martel Sans';
     font-size: 12px;
     font-weight: 800;
-    color: #B2DAC8;
+    color: #F7ABC7;
 }
 
 .thirdBirdArrow {
     position: absolute;
     margin-top: 20px;
     margin-left: 25px;
-    color: #B2DAC8;
+    color: #F7ABC7;
     font-size: 24px;
     --ionicon-stroke-width: 50px;
 }
@@ -205,7 +205,7 @@ ion-toolbar, ion-header {
 }
   
 .itemInput {
-    width: 300px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -360,6 +360,12 @@ ion-toolbar, ion-header {
 
     .explanatoryText {
         font-size: 4vw;
+    }
+}
+
+@media screen and (min-width: 485px) {
+    .itemInput {
+        width: 300px;
     }
 }
 

@@ -88,3 +88,242 @@ ion-toolbar, ion-header {
 .explanatoryTextBold {
     color: #828282;
 }
+
+.imgStar {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.imgColor {
+    position: relative;
+    width: 6vw;
+    margin-top: 0.5vw;
+    z-index: 1;
+}
+
+.imgText {
+    position: absolute;
+    font-family: 'Signika';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 4vw;
+    
+    margin-left: 1.4vw;
+    color: #000000;
+    z-index: 2;
+}
+
+.divLetters {
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.textActivity {
+    font-family: 'Martel Sans';
+    position: relative;
+    font-weight: 500;
+    font-size: 6.2vw;
+    margin-left: 12px;
+    margin-top: 26px;
+    color: #000000;
+    z-index: 2;
+}
+
+.arrowBird {
+    color: #88CFE5;
+    font-size: 8vw;
+    --ionicon-stroke-width: 50px;
+    margin-left: 59%;
+}
+
+.textBird {
+    font-family: 'Martel Sans';
+    font-size: 4vw;
+    font-weight: 800;
+    color: #88CFE5;
+}
+
+.inputElement {
+    font-size: 15px;
+}
+  
+.itemInput {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.itemMsg {
+    font-size: 14px;
+    margin: 0 auto;
+}
+
+.itemButton {
+    margin: 50px auto 20px;
+    height: 50px;
+    text-transform: none;
+}
+  
+.textButton {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px;
+    
+    /* identical to box height, or 150% */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.15px;
+  
+    color: #FFFFFF;
+  
+    /* Inside auto layout */
+  
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+@media screen and (min-width: 390px) {
+    .imgColor {
+        margin-top: 0.6vw;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .headerText {
+        margin-left: 2.5vw;
+    }
+
+    .statementText {
+        font-size: 4vw;
+    }
+
+    .bodyTitle {
+        font-size: 6.4vw;
+    }
+
+    .explanatoryText {
+        font-size: 4vw;
+    }
+}
+
+@media screen and (min-width: 430px) {
+    .imgText {
+        width: 100%;
+    }
+    
+    .imgDiv{
+        overflow-x: hidden;
+    }
+}
+
+@media screen and (min-width: 456px) {
+    .inputElement {
+        font-size: 3.5vw;
+    }
+      
+    .itemInput {
+        width: 80%;
+    }
+    
+    .itemMsg {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .headerText {
+        margin-left: 2vw;
+        font-size: 2em;
+    }
+
+    .statementText {
+        font-size: 3.5vw;
+    }
+
+    .caretIcon {
+        font-size: 5.5vw;
+    }
+
+    .bodyTitle {
+        font-size: 5.8vw;
+    }
+
+    .explanatoryText {
+        font-size: 3.5vw;
+    }
+
+    .imgText {
+        font-size: 4.5vw;
+    }
+}
+
+@media screen and (min-width: 550px) {
+    .inputElement {
+        font-size: 3.5vw;
+    }
+      
+    .imgColor {
+        width: 6.8vw;
+        margin-top: 1vw;
+    }
+
+    .imgText {
+        font-size: 5.3vw;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .statementText {
+        font-size: 22px;
+    }
+
+    .caretIcon {
+        font-size: 38px;
+    }
+
+    .bodyTitle {
+        font-size: 36px;
+    }
+
+    .explanatoryText {
+        font-size: 22px;
+    }
+
+    .imgColor {
+        margin-top: 1.2vw;
+    }
+
+    .imgText {
+        font-size: 5.8vw;
+    }
+}
+
+@media screen and (min-width: 730px) {
+    .imgColor {
+        width: 7.2vw;
+        margin-top: 1.7vw;
+    }
+
+    .imgText {
+        font-size: 6.5vw;
+        margin-left: 1.3vw;
+    }
+}
+
+@media screen and (min-width: 730px) {
+    .imgColor {
+        width: 6.6vw;
+        margin-top: 1.8vw;
+    }
+
+    .imgText {
+        font-size: 6.5vw;
+        margin-left: 1.1vw;
+    }
+}
