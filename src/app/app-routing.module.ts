@@ -31,6 +31,11 @@ const routes: Routes = [
     path: 'third-activity',
     loadChildren: () => import('./pages/third-activity/third-activity.module').then( m => m.ThirdActivityPageModule)
   },
+  {
+    path: 'fifth-activity',
+    loadChildren: () => import('./pages/fifth-activity/fifth-activity.module').then( m => m.FifthActivityPageModule)
+  },
+
 
 
 
