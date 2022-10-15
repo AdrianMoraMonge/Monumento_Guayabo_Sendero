@@ -89,6 +89,96 @@ ion-toolbar, ion-header {
     color: #828282;
 }
 
+.imgBirds {
+    margin: 0 auto;
+    width: 50vw;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.imgColor {
+    position: relative;
+    width: 7vw;
+    z-index: 1;
+}
+
+.imgText {
+    position: absolute;
+    font-family: 'Signika';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 4vw;
+    
+    margin-left: 1.8vw;
+    color: #000000;
+    z-index: 2;
+}
+
+.imgColorSecond {
+    position: relative;
+    width: 9vw;
+    z-index: 1;
+}
+
+.imgTextSecond {
+    position: absolute;
+    font-family: 'Signika';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 6vw;
+    
+    margin-left: 1.9vw;
+    color: #000000;
+    z-index: 2;
+}
+
+.inputElement {
+    font-size: 15px;
+    margin: 0 auto;
+}
+  
+.itemInput {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.itemMsg {
+    font-size: 14px;
+    margin: 0 auto;
+}
+
+.itemButton {
+    margin: 50px auto 20px;
+    height: 50px;
+    text-transform: none;
+}
+  
+.textButton {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px;
+    
+    /* identical to box height, or 150% */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.15px;
+  
+    color: #FFFFFF;
+  
+    /* Inside auto layout */
+  
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
 @media screen and (min-width: 400px) {
     .headerText {
         margin-left: 2.5vw;
@@ -104,6 +194,20 @@ ion-toolbar, ion-header {
 
     .explanatoryText {
         font-size: 4vw;
+    }
+}
+
+@media screen and (min-width: 456px) {
+    .inputElement {
+        font-size: 3.5vw;
+    }
+      
+    .itemInput {
+        width: 80%;
+    }
+    
+    .itemMsg {
+        font-size: 3.5vw;
     }
 }
 
@@ -126,6 +230,12 @@ ion-toolbar, ion-header {
     }
 
     .explanatoryText {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (min-width: 550px) {
+    .inputElement {
         font-size: 3.5vw;
     }
 }

@@ -20,7 +20,7 @@ export class FourthActivityPage implements OnInit {
   private _routerSub = Subscription.EMPTY;
   scrWidth: any;
   wordForm: FormGroup;
-  letters_solution: string = "***********";
+  letters_solution: string = "";
   colSize: number = 1;
   colors: string[] = ["green.svg", "blue.svg", "yellow.svg", "green.svg", "red.svg", "green.svg", "orange.svg", "purple.svg", "pink.svg", "pink.svg", "light_blue.svg"];
   user_response: string = "";
@@ -85,7 +85,7 @@ export class FourthActivityPage implements OnInit {
       }
     }
     this.modified = true;
-    this.letters_solution = _word.toUpperCase() + this.letters_solution.substring(_word.length);
+    this.letters_solution = _word.toUpperCase();
     this.user_response = _word;
     this.wordForm.get("word").setValue(_word);
   }
@@ -161,7 +161,7 @@ export class FourthActivityPage implements OnInit {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
             let activitiesSolved = list[0].Result;
-            if(activitiesSolved != 2){
+            if(activitiesSolved != 3){
               this.router.navigateByUrl('map');
             }
             return;
