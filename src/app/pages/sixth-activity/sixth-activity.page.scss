@@ -1,0 +1,149 @@
+ion-content { 
+    --ion-background-color:#E7D7BF; 
+}
+
+ion-toolbar, ion-header {
+    --min-height: 100px;
+}
+
+.header {
+    --background: rgba(175, 210, 139, 0.877);
+}
+
+.arrowIcon {
+    font-size: 35px;
+}
+
+.headerText {
+    font-family: 'Signika' !important;
+    font-size: 1.8em;
+    color: #FBFBFB;
+    margin-left: 3vw;
+}
+
+.headerNumber {
+    position: absolute;
+    font-family: 'Signika' !important;
+    font-size: 1.8em;
+    margin-left: 11px;
+    color: #FBFBFB;
+    z-index: 3;
+}
+
+.imgLightCircle {
+    position: absolute;
+    width: 37px;
+    z-index: 1;
+}
+
+.imgDarkCircle {
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 3.9px;
+    width: 29px;
+    z-index: 2;
+}
+
+.cardBody {
+    background: #FFFFFF;
+    margin: 40px 30px;
+}
+
+.gridHeader {
+    margin-top: 48px;
+}
+
+.statement {
+    background: rgba(175, 210, 139, 0.54);
+    border-radius: 8px;
+}
+
+.statementText {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-size: 16px;
+    color: #000000;
+}
+
+.caretIcon {
+    font-size: 25px;
+}
+
+.bodyTitle {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-size: 26px;
+    margin-top: 50px;
+    color: #E2822E;
+}
+
+.explanatoryText {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-size: 16px;
+    margin-top: 20px;
+    color: #A7A7A7;
+}
+
+.explanatoryTextBold {
+    color: #828282;
+}
+
+@media screen and (min-width: 400px) {
+    .headerText {
+        margin-left: 2.5vw;
+    }
+
+    .statementText {
+        font-size: 4vw;
+    }
+
+    .bodyTitle {
+        font-size: 6.4vw;
+    }
+
+    .explanatoryText {
+        font-size: 4vw;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .headerText {
+        margin-left: 2vw;
+        font-size: 2em;
+    }
+
+    .statementText {
+        font-size: 3.5vw;
+    }
+
+    .caretIcon {
+        font-size: 5.5vw;
+    }
+
+    .bodyTitle {
+        font-size: 5.8vw;
+    }
+
+    .explanatoryText {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .statementText {
+        font-size: 22px;
+    }
+
+    .caretIcon {
+        font-size: 38px;
+    }
+
+    .bodyTitle {
+        font-size: 36px;
+    }
+
+    .explanatoryText {
+        font-size: 22px;
+    }
+}
