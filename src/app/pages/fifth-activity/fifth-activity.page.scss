@@ -134,6 +134,20 @@ ion-toolbar, ion-header {
     z-index: 2;
 }
 
+.arrowBird {
+    color: #B6AAD4;
+    font-size: 8vw;
+    --ionicon-stroke-width: 50px;
+    margin-left: 66%;
+}
+
+.textBird {
+    font-family: 'Martel Sans';
+    font-size: 4vw;
+    font-weight: 800;
+    color: #B6AAD4;
+}
+
 .inputElement {
     font-size: 15px;
     margin: 0 auto;

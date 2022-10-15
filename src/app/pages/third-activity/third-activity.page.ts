@@ -100,7 +100,7 @@ export class ThirdActivityPage implements OnInit {
   });
 
   await alert.present();
-}
+  }
 
   async openModal(_points: number) {
     const modal = await this.modalCtrl.create({
@@ -156,5 +156,4 @@ export class ThirdActivityPage implements OnInit {
     }
     this.router.navigateByUrl('home');
   }
-
 }

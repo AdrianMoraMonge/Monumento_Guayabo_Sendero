@@ -89,6 +89,77 @@ ion-toolbar, ion-header {
     color: #828282;
 }
 
+.imgFlowers {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.arrowBird {
+    color: #F7ABC7;
+    font-size: 8vw;
+    --ionicon-stroke-width: 50px;
+    margin-left: 66%;
+}
+
+.textBird {
+    font-family: 'Martel Sans';
+    font-size: 4vw;
+    font-weight: 800;
+    color: #F7ABC7;
+}
+
+.flowersText {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-size: 16px;
+    margin-top: 50px;
+    color: #A7A7A7;
+}
+
+.optionsFlowers {
+    width: 12vw;
+}
+
+.marginFirst {
+    margin-left: 2vw;
+}
+
+.itemButton {
+    margin: 50px auto 20px;
+    height: 50px;
+    text-transform: none;
+}
+  
+.textButton {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px;
+    
+    /* identical to box height, or 150% */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.15px;
+  
+    color: #FFFFFF;
+  
+    /* Inside auto layout */
+  
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+@media screen and (min-width: 360px) {
+    .marginFirst {
+        margin-left: 7vw;
+    }
+}
+
 @media screen and (min-width: 400px) {
     .headerText {
         margin-left: 2.5vw;
@@ -104,6 +175,14 @@ ion-toolbar, ion-header {
 
     .explanatoryText {
         font-size: 4vw;
+    }
+
+    .flowersText {
+        font-size: 4vw;
+    }
+
+    .marginFirst {
+        margin-left: 10vw;
     }
 }
 
@@ -128,6 +207,14 @@ ion-toolbar, ion-header {
     .explanatoryText {
         font-size: 3.5vw;
     }
+
+    .flowersText {
+        font-size: 3.5vw;
+    }
+
+    .marginFirst {
+        margin-left: 13vw;
+    }
 }
 
 @media screen and (min-width: 600px) {
@@ -145,5 +232,19 @@ ion-toolbar, ion-header {
 
     .explanatoryText {
         font-size: 22px;
+    }
+
+    .flowersText {
+        font-size: 22px;
+    }
+
+    .marginFirst {
+        margin-left: 15vw;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .marginFirst {
+        margin-left: 22vw;
     }
 }

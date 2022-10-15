@@ -42,6 +42,32 @@
         <ion-text class="explanatoryText">Cuenta la <b class="explanatoryTextBold">cantidad de cada objeto</b> repetido. Uno de ellos se repite en más ocasiones.</ion-text>
       </ion-item>
 
+      <ion-item color="none" lines="none">
+        <ion-img class="imgFlowers" src="assets/flowers.png"></ion-img>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <ion-icon class="arrowBird" name="return-down-forward"></ion-icon>
+        <ion-text class="textBird">ave 3</ion-text>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <ion-text class="flowersText">Seleccione el objeto que más se repite:</ion-text>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+          <ion-img class="optionsFlowers marginFirst" src="assets/first{{state_flowers[0]}}" (click)="markOption(0)"></ion-img>
+          <ion-img class="optionsFlowers" src="assets/second{{state_flowers[1]}}" (click)="markOption(1)"></ion-img>
+          <ion-img class="optionsFlowers" src="assets/third{{state_flowers[2]}}" (click)="markOption(2)"></ion-img>
+          <ion-img class="optionsFlowers" src="assets/fourth{{state_flowers[3]}}" (click)="markOption(3)"></ion-img>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <ion-button class="itemButton" color="lightGreen" (click)="confirmAlert()">
+          <ion-text class="textButton">Listo</ion-text>
+        </ion-button>
+      </ion-item>
+
     </ion-card-content>
   </ion-card>
 </ion-content>
