@@ -48,15 +48,15 @@
 
       <ion-item color="none" lines="none">
         <div class="divLetters">
-        <ion-grid>
-          <ion-row>
-            <ion-col *ngFor="let color of colors; let i = index" size="{{colSize}}">
-              <ion-text *ngIf="this.user_response.length > i" class="imgText"><ion-text *ngIf="letters_solution.charAt(i) == 'I'">&nbsp;</ion-text>{{letters_solution.charAt(i)}}</ion-text>
-              <ion-img class="imgColor" src="assets/activity_five_{{colors[i]}}"></ion-img>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
+          <ion-grid>
+            <ion-row>
+              <ion-col *ngFor="let color of colors; let i = index" size="{{colSize}}">
+                <ion-text *ngIf="this.user_response.length > i" class="imgText"><ion-text *ngIf="letters_solution.charAt(i) == 'I'">&nbsp;</ion-text>{{letters_solution.charAt(i)}}</ion-text>
+                <ion-img class="imgColor" src="assets/activity_five_{{colors[i]}}"></ion-img>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
       </ion-item>
 
       <ion-item color="none" lines="none">

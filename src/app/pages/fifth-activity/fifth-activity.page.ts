@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivitiesService } from 'src/app/services/activities/activities.service';
 import { AlertController } from '@ionic/angular';
-import { HostListener } from "@angular/core";
 import { CookieService } from 'ngx-cookie-service';
 import { ModalController } from '@ionic/angular';
-import { FourthActivityModalComponent } from './fourth-activity-modal/fourth-activity-modal.component';
+import { FifthActivityModalComponent } from './fifth-activity-modal/fifth-activity-modal.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
 import { Subscription } from 'rxjs-compat/Subscription';
@@ -12,41 +11,38 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/filter'; 
 
 @Component({
-  selector: 'app-fourth-activity',
-  templateUrl: './fourth-activity.page.html',
-  styleUrls: ['./fourth-activity.page.scss'],
+  selector: 'app-fifth-activity',
+  templateUrl: './fifth-activity.page.html',
+  styleUrls: ['./fifth-activity.page.scss'],
 })
-export class FourthActivityPage implements OnInit {
+export class FifthActivityPage implements OnInit {
   private _routerSub = Subscription.EMPTY;
-  scrWidth: any;
-  wordForm: FormGroup;
-  letters_solution: string = "";
-  colSize: number = 1;
-  colors: string[] = ["green.svg", "blue.svg", "yellow.svg", "green.svg", "red.svg", "green.svg", "orange.svg", "purple.svg", "pink.svg", "pink.svg", "light_blue.svg"];
-  user_response: string = "";
+  firstForm: FormGroup;
+  secondForm: FormGroup;
+  birdsActivity: string[] = ["first", "second", "third"];
+  templatesActivity: string[][] = [["crossword_template", "crossword_template", "activity_five_green", "crossword_template", "crossword_template", "activity_five_red"], ["activity_five_orange", "crossword_template", "crossword_template", "crossword_template"], ["activity_five_purple", "crossword_template", "crossword_template", "crossword_template", "crossword_template", "crossword_template", "activity_five_blue"]];
+  templatesResponse: string[] = ["activity_five_orange", "activity_five_green", "activity_five_blue", "activity_five_purple", "activity_five_red"];
   modified: boolean = false;
-
-  @HostListener('window:resize', ['$event'])
-  getScreenSize(event?) {
-    this.scrWidth = window.innerWidth;
-    if(this.scrWidth <= 360)
-      this.colSize = 1.3;
-    else
-      this.colSize = 1;
-  }
+  bird_names: string[] = ["", "", "", ""];
+  bird_text: string[] = ["", "", "", ""];
+  user_response: string = "";
 
   constructor(private fb: FormBuilder, private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
     this._routerSub = this.router.events
-      .filter(event => event instanceof NavigationEnd && event.url == '/fourth-activity')
+      .filter(event => event instanceof NavigationEnd && event.url == '/fifth-activity')
       .subscribe((value) => {
         this.confirmTour();
     });
 
-    this.wordForm = this.fb.group({
-      word: [null, [Validators.required, Validators.minLength(3)]]
+    this.firstForm = this.fb.group({
+      first: [null, [Validators.required, Validators.minLength(3)]],
+      second: [null, [Validators.required, Validators.minLength(3)]],
+      third: [null, [Validators.required, Validators.minLength(3)]]
     });
 
-    this.getScreenSize();
+    this.secondForm = this.fb.group({
+      name: [null, [Validators.required, Validators.minLength(3)]]
+    });
   }
 
   ngOnInit() {
@@ -66,15 +62,18 @@ export class FourthActivityPage implements OnInit {
     this.router.navigateByUrl("map");
   }
 
-  modelChanged(_word) {
+  modelChanged(_word, i) {
     if(this.modified) {
       this.modified = false;
       return;
     }
-    if(_word.length > 11) {
+    if((i == 0 && _word.length > 6) || (i == 1 && _word.length > 4) || (i == 2 && _word.length > 7) || (i == 3 && _word.length > 5)) {
       this.modified = true;
-      _word = this.user_response;
-      this.wordForm.get("word").setValue(_word);
+      _word = this.bird_names[i];
+      if(i < 3)
+        this.firstForm.get(this.birdsActivity[i]).setValue(_word);
+      else
+        this.secondForm.get("name").setValue(_word);
       return;
     }
     for (let index = 0; index < _word.length; index++) {
@@ -85,14 +84,17 @@ export class FourthActivityPage implements OnInit {
       }
     }
     this.modified = true;
-    this.letters_solution = _word.toUpperCase();
-    this.user_response = _word;
-    this.wordForm.get("word").setValue(_word);
+    this.bird_text[i] = _word.toUpperCase();
+    this.bird_names[i] = _word;
+    if(i < 3)
+      this.firstForm.get(this.birdsActivity[i]).setValue(_word);
+    else
+      this.secondForm.get("name").setValue(_word);
   }
 
   public async confirmAlert() {
-    if(!this.wordForm.get("word").valid) {
-      this.presentAlert("Error", "Ingrese la palabra.");
+    if(!this.firstForm.get("first").valid && !this.firstForm.get("second").valid && !this.firstForm.get("third").valid && !this.secondForm.get("name").valid) {
+      this.presentAlert("Error", "Completa todos los nombres de las aves.");
       return;
     }
     const alert = await this.alertController.create({
@@ -120,7 +122,7 @@ export class FourthActivityPage implements OnInit {
   async openModal(_points: number) {
     const modal = await this.modalCtrl.create({
       cssClass: 'remember_modal',
-      component: FourthActivityModalComponent,
+      component: FifthActivityModalComponent,
       componentProps: {
         points: _points
       }
@@ -136,8 +138,8 @@ export class FourthActivityPage implements OnInit {
 
   completeActivity(){
     if(this.cookieService.check('idUser')) {
-      this.user_response = ((this.wordForm.value.word).charAt(0)).toUpperCase() + ((this.wordForm.value.word).substring(1)).toLowerCase();
-      this.activitiesService.checkActivity({_idUser: this.cookieService.get('idUser'), answer: this.user_response, id_excercise: 4})
+      this.user_response = ((this.secondForm.value.name).charAt(0)).toUpperCase() + ((this.secondForm.value.name).substring(1)).toLowerCase();
+      this.activitiesService.checkActivity({_idUser: this.cookieService.get('idUser'), answer: this.user_response, id_excercise: 5})
         .subscribe(res => {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
@@ -161,7 +163,7 @@ export class FourthActivityPage implements OnInit {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
             let activitiesSolved = list[0].Result;
-            if(activitiesSolved != 3){
+            if(activitiesSolved != 4){
               this.router.navigateByUrl('map');
             }
             return;
