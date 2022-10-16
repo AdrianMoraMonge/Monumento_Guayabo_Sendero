@@ -23,6 +23,31 @@ const routes: Routes = [
     path: 'second-activity',
     loadChildren: () => import('./pages/second-activity/second-activity.module').then( m => m.SecondActivityPageModule)
   },
+  {
+    path: 'fourth-activity',
+    loadChildren: () => import('./pages/fourth-activity/fourth-activity.module').then( m => m.FourthActivityPageModule)
+  },
+  {
+    path: 'third-activity',
+    loadChildren: () => import('./pages/third-activity/third-activity.module').then( m => m.ThirdActivityPageModule)
+  },
+  {
+    path: 'fifth-activity',
+    loadChildren: () => import('./pages/fifth-activity/fifth-activity.module').then( m => m.FifthActivityPageModule)
+  },
+  {
+    path: 'sixth-activity',
+    loadChildren: () => import('./pages/sixth-activity/sixth-activity.module').then( m => m.SixthActivityPageModule)
+  },
+  {
+    path: 'seventh-activity',
+    loadChildren: () => import('./pages/seventh-activity/seventh-activity.module').then( m => m.SeventhActivityPageModule)
+  },
+
+
+
+
+
 
 
 ];

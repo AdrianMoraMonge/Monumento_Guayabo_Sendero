@@ -30,13 +30,13 @@ ion-toolbar, ion-header {
     z-index: 3;
 }
 
-.imgCircleLight {
+.imgLightCircle {
     position: absolute;
     width: 37px;
     z-index: 1;
 }
 
-.imgCircleDark {
+.imgDarkCircle {
     position: absolute;
     margin-top: 4px;
     margin-left: 3.9px;
@@ -171,12 +171,12 @@ ion-toolbar, ion-header {
     font-weight: 800;
     margin-left: 5px;
     margin-bottom: 5px;
-    color: #B2DAC8;
+    color: #F7ABC7;
 }
 
 .thirdBirdArrow {
     position: absolute;
-    color: #B2DAC8;
+    color: #F7ABC7;
     font-size: 30px;
     margin-top: 2px;
     margin-left: 2px;
@@ -248,6 +248,22 @@ ion-toolbar, ion-header {
 }
 
 @media screen and (min-width: 400px) {
+    .headerText {
+        margin-left: 2.5vw;
+    }
+
+    .statementText {
+        font-size: 4vw;
+    }
+
+    .bodyTitle {
+        font-size: 6.4vw;
+    }
+
+    .explanatoryText {
+        font-size: 4vw;
+    }
+
     .firstGrid {
         min-width: 400px;
         margin-left: 0vw;
@@ -308,6 +324,27 @@ ion-toolbar, ion-header {
 }
 
 @media screen and (min-width: 500px) {
+    .headerText {
+        margin-left: 2vw;
+        font-size: 2em;
+    }
+
+    .statementText {
+        font-size: 3.5vw;
+    }
+
+    .caretIcon {
+        font-size: 5.5vw;
+    }
+
+    .bodyTitle {
+        font-size: 5.8vw;
+    }
+
+    .explanatoryText {
+        font-size: 3.5vw;
+    }
+
     .firstGrid {
         min-width: 400px;
         margin-left: 10vw;
@@ -375,6 +412,22 @@ ion-toolbar, ion-header {
 }
 
 @media screen and (min-width: 600px) {
+    .statementText {
+        font-size: 22px;
+    }
+
+    .caretIcon {
+        font-size: 38px;
+    }
+
+    .bodyTitle {
+        font-size: 36px;
+    }
+
+    .explanatoryText {
+        font-size: 22px;
+    }
+    
     .firstGrid {
         min-width: 400px;
         margin-left: 15.6vw;

@@ -28,7 +28,7 @@ export class FirstActivityPage implements OnInit {
       .subscribe((value) => {
         this.confirmTour();
     });
-   }
+  }
 
   ngOnInit() {
   }
@@ -39,7 +39,7 @@ export class FirstActivityPage implements OnInit {
       header: title,
       message: msg,
       buttons: ['Entendido']
-  });
+    });
     await alert.present();
   }
 
@@ -61,7 +61,7 @@ export class FirstActivityPage implements OnInit {
           }  
         }
       ]
-  });
+    });
 
     await alert.present();
   }
@@ -71,7 +71,7 @@ export class FirstActivityPage implements OnInit {
     if(this.showLetters[i][j])
       this.user_response = this.user_response.substring(0, i*5+j) + this.crossword[i][j] + this.user_response.substring(i*5+j+1);
     else
-    this.user_response = this.user_response.substring(0, i*5+j) + "_" + this.user_response.substring(i*5+j+1);
+      this.user_response = this.user_response.substring(0, i*5+j) + "_" + this.user_response.substring(i*5+j+1);
   }
 
   back(){
@@ -80,7 +80,7 @@ export class FirstActivityPage implements OnInit {
   
   completeActivity(){
     if(this.cookieService.check('idUser')) {
-      this.activitiesService.checkFirstActivity({_idUser: this.cookieService.get('idUser'), answer: this.user_response, id_excercise: 1})
+      this.activitiesService.checkActivity({_idUser: this.cookieService.get('idUser'), answer: this.user_response, id_excercise: 1})
         .subscribe(res => {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
