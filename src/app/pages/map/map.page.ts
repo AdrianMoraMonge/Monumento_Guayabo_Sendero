@@ -67,6 +67,10 @@ export class MapPage implements OnInit {
         this.router.navigateByUrl('sixth-activity');
         break; 
       }  
+      case 6: { 
+        this.router.navigateByUrl('seventh-activity');
+        break; 
+      } 
       default: { 
         //statements; 
         break; 
