@@ -89,6 +89,145 @@ ion-toolbar, ion-header {
     color: #828282;
 }
 
+.imgHieroglyphs {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.imgHieroglyphsCode {
+    margin: 30px auto;
+    width: 100%;
+}
+
+.textCenter{
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.firstBirdText {
+    position: absolute;
+    margin-top: 10.5vw;
+    margin-left: 50vw;
+    font-family: 'Martel Sans';
+    font-size: 3vw;
+    font-weight: 800;
+    color: #88CFE5;
+}
+
+.firstBirdArrow {
+    position: absolute;
+    margin-top: 9.5vw;
+    margin-left: 43vw;
+    color: #88CFE5;
+    font-size: 6vw;
+    --ionicon-stroke-width: 50px;
+}
+
+.secondBirdText {
+    position: absolute;
+    margin-top: 10.5vw;
+    margin-left: 50vw;
+    font-family: 'Martel Sans';
+    font-size: 3vw;
+    font-weight: 800;
+    color: #B6AAD4;
+}
+
+.secondBirdArrow {
+    position: absolute;
+    margin-top: 9.5vw;
+    margin-left: 43vw;
+    color: #B6AAD4;
+    font-size: 6vw;
+    --ionicon-stroke-width: 50px;
+}
+
+.thirdBirdText {
+    position: absolute;
+    margin-top: 10.5vw;
+    margin-left: 50vw;
+    font-family: 'Martel Sans';
+    font-size: 3vw;
+    font-weight: 800;
+    color: #F7ABC7;
+}
+
+.thirdBirdArrow {
+    position: absolute;
+    margin-top: 9.5vw;
+    margin-left: 43vw;
+    color: #F7ABC7;
+    font-size: 6vw;
+    --ionicon-stroke-width: 50px;
+}
+
+.inputElement {
+    font-size: 15px;
+}
+  
+.itemInput {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.itemMsg {
+    font-size: 14px;
+    margin: 0 auto;
+}
+
+.itemButton {
+    margin: 50px auto 20px;
+    height: 50px;
+    text-transform: none;
+}
+  
+.textButton {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px;
+    
+    /* identical to box height, or 150% */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.15px;
+  
+    color: #FFFFFF;
+  
+    /* Inside auto layout */
+  
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+@media screen and (min-width: 280px) {
+    .inputElement {
+        font-size: 6vw;
+    }
+    
+    .itemMsg {
+        font-size: 5.6vw;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 350px) {
+    .inputElement {
+        font-size: 22px;
+    }
+    
+    .itemMsg {
+        font-size: 21px;
+        margin: 0 auto;
+    }
+}
+
 @media screen and (min-width: 400px) {
     .headerText {
         margin-left: 2.5vw;
@@ -104,6 +243,42 @@ ion-toolbar, ion-header {
 
     .explanatoryText {
         font-size: 4vw;
+    }
+
+    .firstBirdText {
+        margin-left: 60vw;
+        font-size: 4vw;
+    }
+    
+    .firstBirdArrow {
+        margin-left: 53vw;
+        font-size: 7vw;
+    }
+
+    .secondBirdText {
+        margin-left: 60vw;
+        font-size: 4vw;
+    }
+    
+    .secondBirdArrow {
+        margin-left: 53vw;
+        font-size: 7vw;
+    } 
+
+    .thirdBirdText {
+        margin-left: 60vw;
+        font-size: 4vw;
+    }
+    
+    .thirdBirdArrow {
+        margin-left: 53vw;
+        font-size: 7vw;
+    }
+}
+
+@media screen and (min-width: 485px) {
+    .itemInput {
+        width: 300px;
     }
 }
 
@@ -128,6 +303,36 @@ ion-toolbar, ion-header {
     .explanatoryText {
         font-size: 3.5vw;
     }
+
+    .firstBirdText {
+        margin-left: 65vw;
+        font-size: 3.5vw;
+    }
+    
+    .firstBirdArrow {
+        margin-left: 58vw;
+        font-size: 6.5vw;
+    }
+
+    .secondBirdText {
+        margin-left: 65vw;
+        font-size: 3.5vw;
+    }
+    
+    .secondBirdArrow {
+        margin-left: 58vw;
+        font-size: 6.5vw;
+    } 
+
+    .thirdBirdText {
+        margin-left: 65vw;
+        font-size: 3.5vw;
+    }
+    
+    .thirdBirdArrow {
+        margin-left: 58vw;
+        font-size: 6.5vw;
+    }
 }
 
 @media screen and (min-width: 600px) {
@@ -145,5 +350,39 @@ ion-toolbar, ion-header {
 
     .explanatoryText {
         font-size: 22px;
+    }
+
+    .firstBirdText {
+        margin-left: 68vw;
+        font-size: 3vw;
+    }
+    
+    .firstBirdArrow {
+        margin-left: 61vw;
+        font-size: 6vw;
+    }
+
+    .secondBirdText {
+        margin-left: 68vw;
+        font-size: 3vw;
+    }
+    
+    .secondBirdArrow {
+        margin-left: 61vw;
+        font-size: 6vw;
+    } 
+
+    .thirdBirdText {
+        margin-left: 68vw;
+        font-size: 3vw;
+    }
+    
+    .thirdBirdArrow {
+        margin-left: 61vw;
+        font-size: 6vw;
+    }
+
+    .imgHieroglyphsCode {
+        width: 80%;
     }
 }

@@ -3,7 +3,7 @@ import { ActivitiesService } from 'src/app/services/activities/activities.servic
 import { AlertController } from '@ionic/angular';
 import { CookieService } from 'ngx-cookie-service';
 import { ModalController } from '@ionic/angular';
-//import { SeventhActivityModalComponent } from './seventh-activity-modal/seventh-activity-modal.component';
+import { SeventhActivityModalComponent } from './seventh-activity-modal/seventh-activity-modal.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
 import { Subscription } from 'rxjs-compat/Subscription';
@@ -17,12 +17,24 @@ import 'rxjs/add/operator/filter';
 })
 export class SeventhActivityPage implements OnInit {
   private _routerSub = Subscription.EMPTY;
+  codeForm: FormGroup;
+  hieroglyphs_list: string[] = ["first_hieroglyphs", "second_hieroglyphs", "third_hieroglyphs"];
+  numBird: number = 0;
+  birdArrow: string[] = ["firstBirdArrow", "secondBirdArrow", "thirdBirdArrow"];
+  birdText: string[] = ["firstBirdText", "secondBirdText", "thirdBirdText"];
+  colors: string[] = ["firstBirdColor", "secondBirdColor", "thirdBirdColor"];
+  textButton: string[] = ["Siguiente", "Siguiente", "Listo"];
+  user_response: string = "";
 
   constructor(private fb: FormBuilder, private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
     this._routerSub = this.router.events
       .filter(event => event instanceof NavigationEnd && event.url == '/seventh-activity')
       .subscribe((value) => {
         //this.confirmTour();
+    });
+
+    this.codeForm = this.fb.group({
+      code: [null, [Validators.required, Validators.minLength(3)]]
     });
    }
 
@@ -44,6 +56,10 @@ export class SeventhActivityPage implements OnInit {
   }
 
   public async confirmAlert() {
+    if(!this.codeForm.get("code").valid) {
+      this.presentAlert("Error", "Ingrese el código.");
+      return;
+    }
     const alert = await this.alertController.create({
       cssClass: 'alert_style',
       header: "Confirmar",
@@ -67,7 +83,7 @@ export class SeventhActivityPage implements OnInit {
   }
 
   async openModal(_points: number) {
-    /*const modal = await this.modalCtrl.create({
+    const modal = await this.modalCtrl.create({
       cssClass: 'remember_modal',
       component: SeventhActivityModalComponent,
       componentProps: {
@@ -80,12 +96,23 @@ export class SeventhActivityPage implements OnInit {
       this.router.navigateByUrl("map");
       return;
     }
-    this.openModal(_points);*/
+    this.openModal(_points);
   }
 
   completeActivity(){
     if(this.cookieService.check('idUser')) {
-      this.activitiesService.checkActivity({_idUser: this.cookieService.get('idUser'), answer: "this.user_response", id_excercise: 6})
+      let response: string = ((this.codeForm.value.code).trim()).toLowerCase();
+      if(this.numBird == 1 && response == "representa a lideres")
+        response = "representa a líderes";
+      this.user_response += response.charAt(0).toUpperCase() + response.slice(1);
+      if(this.numBird < 2) {
+        this.user_response += "-";
+        this.numBird++;
+        this.codeForm.get("code").setValue("");
+        this.codeForm.get("code").markAsUntouched();
+        return;
+      }
+      this.activitiesService.checkActivity({_idUser: this.cookieService.get('idUser'), answer: this.user_response, id_excercise: 7})
         .subscribe(res => {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
@@ -120,5 +147,4 @@ export class SeventhActivityPage implements OnInit {
     }
     this.router.navigateByUrl('home');
   }
-
 }

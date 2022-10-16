@@ -42,6 +42,42 @@
         <ion-text class="explanatoryText"><b class="explanatoryTextBold">¿Sabes que es un jeroglífco?</b> Es un código secreto que esconde un mensaje. <b class="explanatoryTextBold">Descifra el siguiente código con el decodifcador.</b></ion-text>
       </ion-item>
 
+      <ion-item color="none" lines="none">
+        <ion-img class="imgHieroglyphs" src="assets/hieroglyphs.svg"></ion-img>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <ion-text class="explanatoryText textCenter">Escribe en la parte inferior las frases completas para cada ave.</ion-text>
+      </ion-item>
+
+      <section *ngFor="let hieroglyph of hieroglyphs_list; let i = index">
+        <ion-item *ngIf="i == numBird" color="none" lines="none">
+            <ion-img class="imgHieroglyphsCode marginHieroglyphs" src="assets/{{hieroglyphs_list[i]}}.svg"></ion-img>
+            <ion-icon class="{{birdArrow[i]}}" name="return-down-forward"></ion-icon>
+            <ion-text class="{{birdText[i]}}">ave {{i+1}}</ion-text>
+        </ion-item>
+      </section>
+
+      <form [formGroup]="codeForm">
+        <ion-item class="itemInput" color="none">
+          <ion-label color="{{colors[numBird]}}" class="inputElement" position="floating">Escribe el código</ion-label>
+          <ion-input type="text" formControlName="code" color="{{colors[numBird]}}" class="inputElement"></ion-input>
+        </ion-item>
+    
+        <!-- Validation incorrect -->
+        <ion-item color="none" lines="none">
+          <ion-text class="itemMsg" *ngIf="!codeForm.get('code').valid && codeForm.get('code').touched" color="danger">
+            Ingrese el código.
+          </ion-text>
+        </ion-item>
+      </form>
+
+      <ion-item color="none" lines="none">
+        <ion-button class="itemButton" color="lightGreen" (click)="confirmAlert()">
+          <ion-text class="textButton">{{textButton[numBird]}}</ion-text>
+        </ion-button>
+      </ion-item>
+
     </ion-card-content>
   </ion-card>
 </ion-content>
