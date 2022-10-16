@@ -8,6 +8,7 @@ import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '
 import { Subscription } from 'rxjs-compat/Subscription';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/filter'; 
+
 @Component({
   selector: 'app-sixth-activity',
   templateUrl: './sixth-activity.page.html',
@@ -21,9 +22,9 @@ export class SixthActivityPage implements OnInit {
 
   constructor(private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
     this._routerSub = this.router.events
-      .filter(event => event instanceof NavigationEnd && event.url == '/fifth-activity')
+      .filter(event => event instanceof NavigationEnd && event.url == '/sixth-activity')
       .subscribe((value) => {
-        //this.confirmTour();
+        this.confirmTour();
     });
    }
 
@@ -119,7 +120,7 @@ export class SixthActivityPage implements OnInit {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
             let activitiesSolved = list[0].Result;
-            if(activitiesSolved != 4){
+            if(activitiesSolved != 5){
               this.router.navigateByUrl('map');
             }
             return;

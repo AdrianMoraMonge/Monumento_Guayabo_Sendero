@@ -54,7 +54,7 @@ export class FifthActivityPage implements OnInit {
       header: title,
       message: msg,
       buttons: ['Entendido']
-  });
+    });
     await alert.present();
   }
 

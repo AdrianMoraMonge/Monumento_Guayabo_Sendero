@@ -3,7 +3,7 @@ import { ActivitiesService } from 'src/app/services/activities/activities.servic
 import { AlertController } from '@ionic/angular';
 import { CookieService } from 'ngx-cookie-service';
 import { ModalController } from '@ionic/angular';
-import { SecondActivityModalComponent } from './second-activity-modal/second-activity-modal.component';
+//import { SeventhActivityModalComponent } from './seventh-activity-modal/seventh-activity-modal.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
 import { Subscription } from 'rxjs-compat/Subscription';
@@ -11,31 +11,20 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/filter'; 
 
 @Component({
-  selector: 'app-second-activity',
-  templateUrl: './second-activity.page.html',
-  styleUrls: ['./second-activity.page.scss'],
+  selector: 'app-seventh-activity',
+  templateUrl: './seventh-activity.page.html',
+  styleUrls: ['./seventh-activity.page.scss'],
 })
-export class SecondActivityPage implements OnInit {
-  codeForm: FormGroup;
-  birdArrow: string[] = ["firstBirdArrow", "secondBirdArrow", "thirdBirdArrow"];
-  birdText: string[] = ["firstBirdText", "secondBirdText", "thirdBirdText"];
-  clues: string[] = ["aterrador", "chillido", "silbido"];
-  colors: string[] = ["firstBirdColor", "secondBirdColor", "thirdBirdColor"];
-  textButton: string[] = ["Siguiente", "Siguiente", "Listo"];
-  numBird: number = 0;
-  user_response: string = "";
+export class SeventhActivityPage implements OnInit {
   private _routerSub = Subscription.EMPTY;
 
   constructor(private fb: FormBuilder, private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
     this._routerSub = this.router.events
-      .filter(event => event instanceof NavigationEnd && event.url == '/second-activity')
+      .filter(event => event instanceof NavigationEnd && event.url == '/seventh-activity')
       .subscribe((value) => {
-        this.confirmTour();
+        //this.confirmTour();
     });
-    this.codeForm = this.fb.group({
-      code: [null, [Validators.required, Validators.minLength(3)]]
-    });
-  }
+   }
 
   ngOnInit() {
   }
@@ -46,15 +35,15 @@ export class SecondActivityPage implements OnInit {
       header: title,
       message: msg,
       buttons: ['Entendido']
-    });
+  });
     await alert.present();
   }
 
+  back(){
+    this.router.navigateByUrl("map");
+  }
+
   public async confirmAlert() {
-    if(!this.codeForm.get("code").valid) {
-      this.presentAlert("Error", "Ingrese el código.");
-      return;
-    }
     const alert = await this.alertController.create({
       cssClass: 'alert_style',
       header: "Confirmar",
@@ -77,14 +66,10 @@ export class SecondActivityPage implements OnInit {
     await alert.present();
   }
 
-  back(){
-    this.router.navigateByUrl("map");
-  }
-
   async openModal(_points: number) {
-    const modal = await this.modalCtrl.create({
+    /*const modal = await this.modalCtrl.create({
       cssClass: 'remember_modal',
-      component: SecondActivityModalComponent,
+      component: SeventhActivityModalComponent,
       componentProps: {
         points: _points
       }
@@ -95,21 +80,12 @@ export class SecondActivityPage implements OnInit {
       this.router.navigateByUrl("map");
       return;
     }
-    this.openModal(_points);
+    this.openModal(_points);*/
   }
 
   completeActivity(){
     if(this.cookieService.check('idUser')) {
-      let response: string = ((this.codeForm.value.code).trim()).toLowerCase();
-      this.user_response += response.charAt(0).toUpperCase() + response.slice(1);
-      if(this.numBird < 2) {
-        this.user_response += "-";
-        this.numBird++;
-        this.codeForm.get("code").setValue("");
-        this.codeForm.get("code").markAsUntouched();
-        return;
-      }
-      this.activitiesService.checkActivity({_idUser: this.cookieService.get('idUser'), answer: this.user_response, id_excercise: 2})
+      this.activitiesService.checkActivity({_idUser: this.cookieService.get('idUser'), answer: "this.user_response", id_excercise: 6})
         .subscribe(res => {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
@@ -133,7 +109,7 @@ export class SecondActivityPage implements OnInit {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
             let activitiesSolved = list[0].Result;
-            if(activitiesSolved != 1){
+            if(activitiesSolved != 6){
               this.router.navigateByUrl('map');
             }
             return;
@@ -144,4 +120,5 @@ export class SecondActivityPage implements OnInit {
     }
     this.router.navigateByUrl('home');
   }
+
 }

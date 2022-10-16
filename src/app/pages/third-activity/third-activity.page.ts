@@ -42,7 +42,7 @@ export class ThirdActivityPage implements OnInit {
         this.confirmTour();
     });
     this.getScreenSize();
-   }
+  }
 
   ngOnInit() {
   }
@@ -53,7 +53,7 @@ export class ThirdActivityPage implements OnInit {
       header: title,
       message: msg,
       buttons: ['Entendido']
-  });
+    });
     await alert.present();
   }
 
@@ -97,9 +97,9 @@ export class ThirdActivityPage implements OnInit {
           }  
         }
       ]
-  });
+    });
 
-  await alert.present();
+    await alert.present();
   }
 
   async openModal(_points: number) {
