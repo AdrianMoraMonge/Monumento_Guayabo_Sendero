@@ -200,6 +200,16 @@ ion-toolbar, ion-header {
     --ionicon-stroke-width: 50px;
 }
 
+.audioClass {
+    margin: 0 auto;
+}
+
+audio::-webkit-media-controls-play-button,
+     audio::-webkit-media-controls-panel {
+     background-color: #A7A7A7;
+     color: #A7A7A7;
+}
+
 .inputElement {
     font-size: 15px;
 }
