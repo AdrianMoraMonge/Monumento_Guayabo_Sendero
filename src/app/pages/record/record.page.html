@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-grid class="gridHeader">
+      <ion-row>
+        <ion-col size="auto">
+          <ion-icon (click)="back()" class="arrowIcon" name="arrow-back"></ion-icon>
+        </ion-col>
+        <ion-col size="1.4" size-sm="1" size-md="0.8" size-lg="0.6" size-xl="0.4">
+          <ion-text class="headerNumber">8</ion-text>
+          <ion-img class="imgLightCircle" src="assets/light_green_circle.svg"></ion-img>
+          <ion-img class="imgDarkCircle" src="assets/dark_green_circle.svg"></ion-img>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-text class="headerText">Enigma Final</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="cardBody">
+    <ion-card-content>
+      <ion-item class="statement" color="statementGreen" lines="none">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="auto">
+              <ion-icon color="darkGreen" class="caretIcon" name="caret-forward"></ion-icon>
+            </ion-col>
+            <ion-col>
+              <ion-text class="statementText">Para facilitar el trabajo, le abrimos un <b>expediente individual a las aves desaparecidas.</b></ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <ion-text class="bodyTitle"><b>Expedientes</b></ion-text>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <ion-text class="explanatoryText">Después de descifrar el reto de cada estación, <b class="explanatoryTextBold">marca la opción que se adecua mejor a las pistas obtenidas</b>, así tendrás un <b class="explanatoryTextBold">resumen de cómo es el ave.</b></ion-text>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <ion-img class="imgRecord" src="assets/birds_record.svg"></ion-img>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
