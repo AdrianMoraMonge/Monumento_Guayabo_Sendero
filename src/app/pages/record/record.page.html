@@ -13,6 +13,9 @@
         <ion-col size="auto">
           <ion-text class="headerText">Enigma Final</ion-text>
         </ion-col>
+        <ion-col *ngIf="this.numBird != 0" size="{{this.sizeCol}}">
+          <ion-icon class="helpIconHeader" name="help-circle" (click)="openModal()"></ion-icon>
+        </ion-col>
       </ion-row>
     </ion-grid>
   </ion-toolbar>
@@ -21,29 +24,128 @@
 <ion-content>
   <ion-card class="cardBody">
     <ion-card-content>
-      <ion-item class="statement" color="statementGreen" lines="none">
+      <section *ngIf="this.numBird == 0">
+        <ion-item class="statement" color="statementGreen" lines="none">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="auto">
+                <ion-icon color="darkGreen" class="caretIcon" name="caret-forward"></ion-icon>
+              </ion-col>
+              <ion-col>
+                <ion-text class="statementText">Para facilitar el trabajo, le abrimos un <b>expediente individual a las aves desaparecidas.</b></ion-text>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+
+        <ion-item color="none" lines="none">
+          <ion-text class="bodyTitle firstColorTitle"><b>Expedientes</b></ion-text>
+        </ion-item>
+
+        <ion-item color="none" lines="none">
+          <ion-text class="explanatoryText">Después de descifrar el reto de cada estación, <b class="explanatoryTextBold">marca la opción que se adecua mejor a las pistas obtenidas</b>, así tendrá un <b class="explanatoryTextBold">resumen de cómo es el ave.</b></ion-text>
+        </ion-item>
+
+        <ion-item color="none" lines="none">
+          <ion-img class="imgRecord" src="assets/birds_record.svg"></ion-img>
+        </ion-item>
+
+        <ion-item color="none" lines="none">
+          <ion-text class="explanatoryText">En la parte superior derecha de cada expediente verá un <b class="explanatoryTextBold">icono</b><ion-icon class="helpIcon" name="help-circle"></ion-icon><section>Este es de ayuda para <b class="explanatoryTextBold">recordar las características de cada ave.</b></section></ion-text>
+        </ion-item>
+      </section>
+
+      <section *ngIf="this.numBird != 0">
+        <ion-item color="none" lines="none">
+          <ion-text class="bodyTitle secondColorTitle"><b>DESAPARECIDA {{this.numBird}}</b></ion-text>
+        </ion-item>
+
+        <ion-item color="none" lines="none">
+          <ion-text class="bodyTitle firstColorTitle"><b>Alimentación</b></ion-text>
+        </ion-item>
+
         <ion-grid>
+          <ion-radio-group value="custom-checked">
           <ion-row>
-            <ion-col size="auto">
-              <ion-icon color="darkGreen" class="caretIcon" name="caret-forward"></ion-icon>
-            </ion-col>
-            <ion-col>
-              <ion-text class="statementText">Para facilitar el trabajo, le abrimos un <b>expediente individual a las aves desaparecidas.</b></ion-text>
+            <ion-col *ngFor="let bird of feeding_birds_images; let i = index" size="auto">
+              <ion-img class="feedingBirds" src="assets/{{feeding_birds_images[i]}}"></ion-img>
+              <ion-radio class="radioStyle" value={{feeding_birds_text[i]}}></ion-radio>
+              <ion-text class="textRadio">{{feeding_birds_text[i]}}</ion-text>
             </ion-col>
           </ion-row>
+        </ion-radio-group>
         </ion-grid>
-      </ion-item>
+
+        <ion-item color="none" lines="none">
+          <ion-text class="bodyTitle firstColorTitle"><b>Canto</b></ion-text>
+        </ion-item>
+
+        <ion-grid>
+          <ion-radio-group value="custom-checked">
+          <ion-row>
+            <ion-col *ngFor="let bird of singing_birds_images; let i = index" size="auto">
+              <ion-img class="feedingBirds" src="assets/{{singing_birds_images[i]}}"></ion-img>
+              <ion-radio class="radioStyle" value={{singing_birds_text[i]}}></ion-radio>
+              <ion-text class="textRadio">{{singing_birds_text[i]}}</ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-radio-group>
+        </ion-grid>
+
+        <ion-item color="none" lines="none">
+          <ion-text class="bodyTitle firstColorTitle"><b>Hábitos diarios</b></ion-text>
+        </ion-item>
+
+        <ion-grid>
+          <ion-radio-group value="custom-checked">
+          <ion-row>
+            <ion-col *ngFor="let bird of habits_birds_images; let i = index" size="auto">
+              <ion-img class="feedingBirds" src="assets/{{habits_birds_images[i]}}"></ion-img>
+              <ion-radio class="radioStyle" value={{habits_birds_text[i]}}></ion-radio>
+              <ion-text class="textRadio">{{habits_birds_text[i]}}</ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-radio-group>
+        </ion-grid>
+
+        <ion-item color="none" lines="none">
+          <ion-text class="bodyTitle firstColorTitle"><b>Función en el bosque</b></ion-text>
+        </ion-item>
+
+        <ion-grid>
+          <ion-radio-group value="custom-checked">
+          <ion-row>
+            <ion-col *ngFor="let bird of bird_functions_images; let i = index" size="auto">
+              <ion-img class="feedingBirds" src="assets/{{bird_functions_images[i]}}"></ion-img>
+              <ion-radio class="radioStyle" value={{bird_functions_text[i]}}></ion-radio>
+              <ion-text class="textRadio">{{bird_functions_text[i]}}</ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-radio-group>
+        </ion-grid>
+
+        <ion-item color="none" lines="none">
+          <ion-text class="bodyTitle firstColorTitle"><b>Relevancia arqueológica</b></ion-text>
+        </ion-item>
+
+        <ion-grid>
+          <ion-radio-group value="custom-checked">
+          <ion-row>
+            <ion-col *ngFor="let bird of bird_relevance_images; let i = index" size="auto">
+              <ion-img class="feedingBirds" src="assets/{{bird_relevance_images[i]}}"></ion-img>
+              <ion-radio class="radioStyle" value={{bird_relevance_text[i]}}></ion-radio>
+              <ion-text class="textRadio">{{bird_relevance_text[i]}}</ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-radio-group>
+        </ion-grid>
+
+      </section>
 
       <ion-item color="none" lines="none">
-        <ion-text class="bodyTitle"><b>Expedientes</b></ion-text>
-      </ion-item>
-
-      <ion-item color="none" lines="none">
-        <ion-text class="explanatoryText">Después de descifrar el reto de cada estación, <b class="explanatoryTextBold">marca la opción que se adecua mejor a las pistas obtenidas</b>, así tendrás un <b class="explanatoryTextBold">resumen de cómo es el ave.</b></ion-text>
-      </ion-item>
-
-      <ion-item color="none" lines="none">
-        <ion-img class="imgRecord" src="assets/birds_record.svg"></ion-img>
+        <ion-button class="itemButton" color="lightGreen" (click)="confirmAlert()">
+          <ion-text class="textButton">{{textButton[numBird]}}</ion-text>
+        </ion-button>
       </ion-item>
 
     </ion-card-content>
