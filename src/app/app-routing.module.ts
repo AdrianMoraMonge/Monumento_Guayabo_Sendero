@@ -47,6 +47,11 @@ const routes: Routes = [
     path: 'record',
     loadChildren: () => import('./pages/record/record.module').then( m => m.RecordPageModule)
   },
+  {
+    path: 'species-list',
+    loadChildren: () => import('./pages/species-list/species-list.module').then( m => m.SpeciesListPageModule)
+  },
+
 
 
 
