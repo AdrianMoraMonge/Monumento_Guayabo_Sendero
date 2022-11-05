@@ -1,0 +1,258 @@
+ion-content { 
+    --ion-background-color:#E7D7BF; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-grid {
+    height: 100% !important;
+ }
+.parent-row {
+    height: 100% !important;
+    align-items: center !important;
+    justify-content: center !important;
+ }
+
+ion-toolbar, ion-header {
+    --min-height: 100px;
+}
+
+.header {
+    --background: rgba(175, 210, 139, 0.877);
+}
+
+.arrowIcon {
+    font-size: 30px;
+}
+
+.helpIconHeader {
+    font-size: 30px;
+    float: right;
+    color: #5D9331;
+}
+
+.headerText {
+    font-family: 'Signika' !important;
+    font-size: 1.4em;
+    color: #FBFBFB;
+    margin-left: 3vw;
+}
+
+.headerNumber {
+    position: absolute;
+    font-family: 'Signika' !important;
+    font-size: 1.4em;
+    margin-left: 9px;
+    margin-top: 2px;
+    color: #FBFBFB;
+    z-index: 3;
+}
+
+.imgLightCircle {
+    position: absolute;
+    width: 30px;
+    z-index: 1;
+}
+
+.imgDarkCircle {
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 3.9px;
+    width: 22px;
+    z-index: 2;
+}
+
+.cardBody {
+    background: #FFFFFF;
+    margin: 40px 30px;
+}
+
+.gridHeader {
+    margin-top: 48px;
+}
+
+.statement {
+    background: rgba(175, 210, 139, 0.54);
+    border-radius: 8px;
+}
+
+.statementText {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-size: 16px;
+    color: #000000;
+}
+
+.caretIcon {
+    font-size: 25px;
+}
+
+.arrowIconText {
+    position: absolute;
+    color: #6F8F5B;
+    font-size: 7vw;
+}
+
+.bodyTitle {
+    font-family: 'Signika';
+    font-style: normal;
+    font-size: 22px;
+    margin-top: 50px;
+    color: #E2822E;
+}
+
+.explanatoryText {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-size: 16px;
+    margin: 0 auto;
+    margin-top: 20px;
+    color: #A7A7A7;
+}
+
+.explanatoryTextBold {
+    color: #828282;
+}
+
+.imgBirds {
+    width: 17vw;
+    margin-top: 35px;
+}
+
+.textRadio {
+    position: absolute;
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-size: 4vw;
+    color: #828282;
+}
+
+.marginText {
+    margin-top: 50px;
+}
+
+.radioStyle {
+    width: 4vw;
+    height: 4vw;
+}
+
+.itemButton {
+    margin: 50px auto 20px;
+    height: 50px;
+    text-transform: none;
+}
+  
+.textButton {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px;
+    
+    /* identical to box height, or 150% */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.15px;
+  
+    color: #FFFFFF;
+  
+    /* Inside auto layout */
+  
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+@media screen and (min-width: 350px) {
+    .arrowIconText {
+        font-size: 6vw;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .headerText {
+        margin-left: 2.5vw;
+    }
+
+    .statementText {
+        font-size: 4vw;
+    }
+
+    .bodyTitle {
+        font-size: 6.4vw;
+    }
+
+    .explanatoryText {
+        font-size: 4vw;
+    }
+
+    .arrowIconText {
+        font-size: 5vw;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .headerText {
+        margin-left: 1vw;
+        font-size: 1.5em;
+    }
+
+    .statementText {
+        font-size: 3.5vw;
+    }
+
+    .caretIcon {
+        font-size: 5.5vw;
+    }
+
+    .bodyTitle {
+        font-size: 5.8vw;
+    }
+
+    .explanatoryText {
+        font-size: 3.5vw;
+    }
+
+    .arrowIconText {
+        font-size: 4.5vw;
+    }
+
+    .imgBirds {
+        width: 90px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .statementText {
+        font-size: 22px;
+    }
+
+    .caretIcon {
+        font-size: 38px;
+    }
+
+    .bodyTitle {
+        font-size: 36px;
+    }
+
+    .explanatoryText {
+        font-size: 22px;
+    }
+
+    .arrowIconText {
+        font-size: 25px;
+    }
+
+    .textRadio {
+        font-size: 22px;
+    }
+    
+    .radioStyle {
+        width: 22px;
+        height: 22px;
+    }
+}

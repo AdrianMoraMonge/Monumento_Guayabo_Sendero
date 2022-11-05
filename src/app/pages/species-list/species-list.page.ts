@@ -5,32 +5,31 @@ import { CookieService } from 'ngx-cookie-service';
 import { HostListener } from "@angular/core";
 import { ModalController } from '@ionic/angular';
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
-import { RecordModalComponent } from './record-modal/record-modal.component';
+import { SpeciesListModalComponent } from './species-list-modal/species-list-modal.component';
 import { Subscription } from 'rxjs-compat/Subscription';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/filter'; 
 
 @Component({
-  selector: 'app-record',
-  templateUrl: './record.page.html',
-  styleUrls: ['./record.page.scss'],
+  selector: 'app-species-list',
+  templateUrl: './species-list.page.html',
+  styleUrls: ['./species-list.page.scss'],
 })
-export class RecordPage implements OnInit {
+export class SpeciesListPage implements OnInit {
   private _routerSub = Subscription.EMPTY;
+  textButton: string[] = ["Siguiente", "Siguiente", "Listo"];
+  listBirds: string[][] = [["Halcón Peregrino", "Pájaro Campana", "Lapa roja"], 
+                          ["Jacamará", "Colibrí de Manglar", "Pinzón Cafetalero"],
+                          ["Rualdo", "Lechucita Parda", "Pájaro Aceite"]];
+  imgBirds: string[][] = [["peregrino_bird.png", "campana_bird.png", "lapa_bird.png"], 
+                          ["jacamara_bird.png", "colibri_manglar_bird.png", "cafetalero_bird.png"],
+                          ["rualdo_bird.png", "lechucita__parda.png", "aceite_bird.png"]];
+  valueBirds: string[][] = [["peregrino", "campana", "lapa"], 
+                          ["jacamara", "colibri", "cafetalero"],
+                          ["rualdo", "lechucita", "aceite"]];
   numBird: number = 0;
   scrWidth: any;
   sizeCol: number = 2.2;
-  textButton: string[] = ["Siguiente", "Siguiente", "Siguiente", "Listo"];
-  feeding_birds_images: string[] = ["carnivorous_bird.svg", "seed_bird.svg", "frugivorous_bird.svg", "insectivorous_bird.svg", "nectarivorous_bird.svg"];
-  feeding_birds_text: string[] = ["carnívoro", "semillero", "frugívoro", "insectívoro", "nectarívoro"];
-  singing_birds_images: string[] = ["medium_bird.svg", "small_bird.svg", "big_bird.svg"];
-  singing_birds_text: string[] = ["cantos graves", "cantos agudos", "cantos potentes"];
-  habits_birds_images: string[] = ["daytime_colors.svg", "night_colors.svg"];
-  habits_birds_text: string[] = ["colores claros y llamativos", "colores oscuros"];
-  bird_functions_images: string[] = ["scatter_bird.svg", "biological_controller_bird.svg", "pollinating_bird.svg"];
-  bird_functions_text: string[] = ["dispersor", "controlador biológico", "polinizador"];
-  bird_relevance_images: string[] = ["medium_bird.svg", "big_bird.svg", "hummingbird.svg"];
-  bird_relevance_text: string[] = ["aves nocturnas", "aves rapaces", "aves coloridas"];
 
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?) {
@@ -64,7 +63,6 @@ export class RecordPage implements OnInit {
 
   ngOnInit() {
   }
-
   public async presentAlert(title: string, msg: string) {
     const alert = await this.alertController.create({
       cssClass: 'alert_style',
@@ -73,6 +71,10 @@ export class RecordPage implements OnInit {
       buttons: ['Entendido']
   });
     await alert.present();
+  }
+
+  back(){
+    this.router.navigateByUrl("map");
   }
 
   public async confirmAlert() {
@@ -102,16 +104,22 @@ export class RecordPage implements OnInit {
   await alert.present();
   }
 
-  async openModal() {
+  async openModal(points: number) {
     const modal = await this.modalCtrl.create({
       cssClass: 'remember_modal',
-      component: RecordModalComponent,
+      component: SpeciesListModalComponent,
       componentProps: {
-        numBird: this.numBird
+        points: points,
+        numBird: 2
       }
     });
     modal.present();
     const {data, role} = await modal.onWillDismiss();
+    if(role == "continue"){
+      this.router.navigateByUrl("map");
+      return;
+    }
+    this.openModal(points);
   }
 
   confirmTour(){

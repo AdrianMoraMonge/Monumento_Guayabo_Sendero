@@ -1,0 +1,20 @@
+<ion-content>
+  <ion-item color="none" lines="none">
+    <ion-text color="{{colorTitle}}" class="title">{{textTitle}}</ion-text>
+  </ion-item>
+
+  <ion-item color="none" lines="none">
+    <ion-img class="imgBird" src="assets/{{imgBirds[numBird]}}"></ion-img>
+  </ion-item>
+
+  <ion-item color="none" lines="none">
+    <ion-text class="textBody">{{listBirds[numBird]}}</ion-text>
+  </ion-item>
+
+  <ion-item color="none" lines="none">
+    <ion-button class="itemButton" color="lightGreen" (click)="continue()">
+      <ion-text class="textButton">Continuar</ion-text>
+    </ion-button>
+  </ion-item>
+
+</ion-content>
