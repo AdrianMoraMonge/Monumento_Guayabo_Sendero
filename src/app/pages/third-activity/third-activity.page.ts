@@ -37,12 +37,11 @@ export class ThirdActivityPage implements OnInit {
 
   constructor(private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
     this._routerSub = this.router.events
-      .filter(event => event instanceof NavigationEnd && event.url == '/third-activity')
+      .filter(event => event instanceof NavigationEnd && event.url == '/first-activity')
       .subscribe((value) => {
-        this.confirmTour();
+        //this.confirmTour();
     });
-    this.getScreenSize();
-  }
+   }
 
   ngOnInit() {
   }
@@ -53,7 +52,7 @@ export class ThirdActivityPage implements OnInit {
       header: title,
       message: msg,
       buttons: ['Entendido']
-    });
+  });
     await alert.present();
   }
 
@@ -97,10 +96,10 @@ export class ThirdActivityPage implements OnInit {
           }  
         }
       ]
-    });
+  });
 
-    await alert.present();
-  }
+  await alert.present();
+}
 
   async openModal(_points: number) {
     const modal = await this.modalCtrl.create({
@@ -156,4 +155,5 @@ export class ThirdActivityPage implements OnInit {
     }
     this.router.navigateByUrl('home');
   }
+
 }

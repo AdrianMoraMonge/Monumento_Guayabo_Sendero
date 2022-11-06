@@ -4,9 +4,7 @@ import { AlertController } from '@ionic/angular';
 import { CookieService } from 'ngx-cookie-service';
 import { ModalController } from '@ionic/angular';
 import { SecondActivityModalComponent } from './second-activity-modal/second-activity-modal.component';
-import { NativeAudio } from '@awesome-cordova-plugins/native-audio/ngx';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
 import { Subscription } from 'rxjs-compat/Subscription';
 import 'rxjs/add/operator/do';
@@ -16,7 +14,6 @@ import 'rxjs/add/operator/filter';
   selector: 'app-second-activity',
   templateUrl: './second-activity.page.html',
   styleUrls: ['./second-activity.page.scss'],
-  providers: [NativeAudio]
 })
 export class SecondActivityPage implements OnInit {
   codeForm: FormGroup;
@@ -25,7 +22,6 @@ export class SecondActivityPage implements OnInit {
   clues: string[] = ["aterrador", "chillido", "silbido"];
   colors: string[] = ["firstBirdColor", "secondBirdColor", "thirdBirdColor"];
   textButton: string[] = ["Siguiente", "Siguiente", "Listo"];
-  audio_birds: string[] = ["first_bird_audio.mp3", "second_bird_audio.mp3", "third_bird_audio.mp3"];
   numBird: number = 0;
   user_response: string = "";
   private _routerSub = Subscription.EMPTY;
@@ -50,15 +46,11 @@ export class SecondActivityPage implements OnInit {
       header: title,
       message: msg,
       buttons: ['Entendido']
-    });
+  });
     await alert.present();
   }
 
   public async confirmAlert() {
-    if(!this.codeForm.get("code").valid) {
-      this.presentAlert("Error", "Ingrese el código.");
-      return;
-    }
     const alert = await this.alertController.create({
       cssClass: 'alert_style',
       header: "Confirmar",
@@ -76,7 +68,7 @@ export class SecondActivityPage implements OnInit {
           }  
         }
       ]
-    });
+  });
 
     await alert.present();
   }

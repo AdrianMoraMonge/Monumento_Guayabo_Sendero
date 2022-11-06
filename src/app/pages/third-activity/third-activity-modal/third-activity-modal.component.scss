@@ -44,13 +44,7 @@ ion-content {
 }
 
 .thirdColor {
-    color: #F7ABC7;
-}
-
-.circle {
-    position: absolute;
-    margin-left: 17%;
-    width: 18px;
+    color: #B2DAC8;
 }
 
 .imgRemember {
@@ -86,70 +80,4 @@ ion-content {
     flex: none;
     order: 1;
     flex-grow: 0;
-}
-
-@media screen and (min-width: 515px) {
-    .circle {
-        margin-left: 18%;
-    }
-}
-
-@media screen and (min-width: 565px) {
-    .circle {
-        margin-left: 21%;
-    }
-}
-
-@media screen and (min-width: 630px) {
-    .circle {
-        margin-left: 25%;
-    }
-}
-
-@media screen and (min-width: 680px) {
-    .circle {
-        margin-left: 26%;
-    }
-}
-
-@media screen and (min-width: 730px) {
-    .circle {
-        margin-left: 28%;
-    }
-}
-
-@media screen and (min-width: 790px) {
-    .circle {
-        margin-left: 30%;
-    }
-}
-
-@media screen and (min-width: 870px) {
-    .circle {
-        margin-left: 32%;
-    }
-}
-
-@media screen and (min-width: 950px) {
-    .circle {
-        margin-left: 33.5%;
-    }
-}
-
-@media screen and (min-width: 1030px) {
-    .circle {
-        margin-left: 35%;
-    }
-}
-
-@media screen and (min-width: 1150px) {
-    .circle {
-        margin-left: 36.5%;
-    }
-}
-
-@media screen and (min-width: 1260px) {
-    .circle {
-        margin-left: 37.5%;
-    }
 }
