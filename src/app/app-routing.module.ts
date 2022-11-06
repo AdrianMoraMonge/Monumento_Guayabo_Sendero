@@ -51,6 +51,11 @@ const routes: Routes = [
     path: 'species-list',
     loadChildren: () => import('./pages/species-list/species-list.module').then( m => m.SpeciesListPageModule)
   },
+  {
+    path: 'final',
+    loadChildren: () => import('./pages/final/final.module').then( m => m.FinalPageModule)
+  },
+
 
 
 
