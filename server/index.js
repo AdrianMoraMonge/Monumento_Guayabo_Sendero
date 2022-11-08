@@ -26,6 +26,12 @@ router.route('/checkActivity').post((request, response) => {
   })
 });
 
+router.route('/getScore').post((request, response) => {
+  Db.getScore(request.body).then((data) => {
+    response.json(data[0]);
+  })
+});
+
 router.route('/numberActivitiesSolved').post((request, response) => {
   Db.numberActivitiesSolved(request.body).then((data) => {
     response.json(data[0]);

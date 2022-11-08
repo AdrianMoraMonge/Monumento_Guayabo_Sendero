@@ -1,20 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
-
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-third-activity-modal',
   templateUrl: './third-activity-modal.component.html',
   styleUrls: ['./third-activity-modal.component.scss'],
 })
+
+@NgModule({
+  imports: [CommonModule]
+})
 export class ThirdActivityModalComponent implements OnInit {
   textTitle: string = "¡Bien hecho!";
   colorTitle: string = "correctAnswer";
-
+  respuestas: boolean[] = [true, true, true];
   constructor(private modalCtrl: ModalController, public navParams: NavParams) {
-    if(navParams.get("points") == 0){
-      this.textTitle = "Estuviste cerca, ¡tú puedes!"
+    if(navParams.get("points") < 3){
+      this.textTitle = "Lo siento fallaste, ¡puedes lograrlo!. Las respuestas correctas son:"
       this.colorTitle = "danger";
     }
+    this.respuestas = navParams.get("respuestas");
    }
 
   ngOnInit() {}

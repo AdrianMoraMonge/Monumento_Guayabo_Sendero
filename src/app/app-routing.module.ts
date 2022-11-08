@@ -55,15 +55,10 @@ const routes: Routes = [
     path: 'final',
     loadChildren: () => import('./pages/final/final.module').then( m => m.FinalPageModule)
   },
-
-
-
-
-
-
-
-
-
+  {
+    path: 'result',
+    loadChildren: () => import('./pages/result/result.module').then( m => m.ResultPageModule)
+  },
 
 ];
 

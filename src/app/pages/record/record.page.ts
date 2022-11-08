@@ -31,7 +31,13 @@ export class RecordPage implements OnInit {
   bird_functions_text: string[] = ["dispersor", "controlador biológico", "polinizador"];
   bird_relevance_images: string[] = ["medium_bird.svg", "big_bird.svg", "hummingbird.svg"];
   bird_relevance_text: string[] = ["aves nocturnas", "aves rapaces", "aves coloridas"];
-
+  respuestas: string[][] = [["semillero", "cantos graves", "colores oscuros", "dispersor", "aves nocturnas"], ["carnívoro", "cantos potentes", "colores claros y llamativos", "controlador biológico", "aves rapaces"], ["nectarívoro", "cantos agudos", "colores claros y llamativos", "polinizador", "aves coloridas"]];
+  selectedValueFirst: string;
+  selectedValueSecond: string;
+  selectedValueThird: string;
+  selectedValueFour: string;
+  selectedValueFifth: string;
+  deshabilitar: boolean = false;
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?) {
     this.scrWidth = window.innerWidth;
@@ -57,7 +63,7 @@ export class RecordPage implements OnInit {
     this._routerSub = this.router.events
       .filter(event => event instanceof NavigationEnd && event.url == '/record')
       .subscribe((value) => {
-        //this.confirmTour();
+        this.confirmTour();
     });
     this.getScreenSize();
   }
@@ -76,8 +82,16 @@ export class RecordPage implements OnInit {
   }
 
   public async confirmAlert() {
+    if(this.deshabilitar){
+      this.router.navigateByUrl('species-list');
+      return;
+    }
     if(this.numBird == 0){
       this.numBird++;
+      return;
+    }
+    else if(this.selectedValueFirst == undefined || this.selectedValueSecond == undefined || this.selectedValueThird == undefined || this.selectedValueFour == undefined || this.selectedValueFifth == undefined){
+      this.presentAlert("Error", "Complete el formulario del expediente.");
       return;
     }
     const alert = await this.alertController.create({
@@ -93,13 +107,73 @@ export class RecordPage implements OnInit {
         {
           text: 'Sí, confirmar',
           handler: () => {
-            //this.completeActivity();
+            if(this.selectedValueFirst != this.respuestas[this.numBird-1][0]){
+              this.presentAlert("Error", "La alimentación de esta ave no es la correcta.");
+            }
+            else if(this.selectedValueSecond != this.respuestas[this.numBird-1][1]){
+              this.presentAlert("Error", "El canto de esta ave no es la correcta.");
+            }
+            else if(this.selectedValueThird != this.respuestas[this.numBird-1][2]){
+              this.presentAlert("Error", "Los hábitos de esta ave no coinciden con la respuesta.");
+            }
+            else if(this.selectedValueFour != this.respuestas[this.numBird-1][3]){
+              this.presentAlert("Error", "La fución del ave no es correcta.");
+            }
+            else if(this.selectedValueFifth != this.respuestas[this.numBird-1][4]){
+              this.presentAlert("Error", "La relevancia arqueológica del ave no es correcta.");
+            }
+            else{
+              this.completeActivity(this.respuestas[this.numBird-1][0]+"-"+this.respuestas[this.numBird-1][1]+"-"+this.respuestas[this.numBird-1][2]+"-"+this.respuestas[this.numBird-1][3]+"-"+this.respuestas[this.numBird-1][4]);
+            }
           }  
         }
       ]
-  });
+    });
+    await alert.present();
+  }
 
-  await alert.present();
+  loadRecord(num: number){
+    this.deshabilitar = true;
+    if(num == 0){
+      this.selectedValueFirst = "semillero";
+      this.selectedValueSecond = "cantos graves";
+      this.selectedValueThird = "colores oscuros";
+      this.selectedValueFour = "dispersor";
+      this.selectedValueFifth = "aves nocturnas";
+    }
+    else if(1){
+      this.selectedValueFirst = "carnívoro";
+      this.selectedValueSecond = "cantos potentes";
+      this.selectedValueThird = "colores claros y llamativos";
+      this.selectedValueFour = "controlador biológico";
+      this.selectedValueFifth = "aves rapaces";
+    }
+    else{
+      this.selectedValueFirst = "nectarívoro";
+      this.selectedValueSecond = "cantos agudos";
+      this.selectedValueThird = "polinizador";
+      this.selectedValueFour = "colores claros y llamativos";
+      this.selectedValueFifth = "aves coloridas";
+    }
+  }
+
+  completeActivity(respo){
+    if(this.cookieService.check('idUser')) {
+      this.activitiesService.checkActivity({_idUser: this.cookieService.get('idUser'), answer: respo, id_excercise: (8+(this.numBird-1)*2)})
+        .subscribe(res => {
+          let list = res as [{Result}];
+          if(list != null && list.length > 0){
+            let points = list[0].Result;
+            if(points >= 0){
+              this.router.navigateByUrl('species-list');
+              return;
+            }
+          }
+          this.presentAlert('Error', 'Ocurrió un error, intente de nuevo.');
+      });
+    }
+    else
+      this.router.navigateByUrl('home');
   }
 
   async openModal() {
@@ -112,6 +186,10 @@ export class RecordPage implements OnInit {
     });
     modal.present();
     const {data, role} = await modal.onWillDismiss();
+    if(role == "close"){
+      return;
+    }
+    this.openModal();
   }
 
   confirmTour(){
@@ -121,7 +199,34 @@ export class RecordPage implements OnInit {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
             let activitiesSolved = list[0].Result;
-            if(activitiesSolved != 5){
+            console.log(activitiesSolved);
+            if(activitiesSolved == 7){
+              this.deshabilitar = false;
+              this.numBird = 0;
+            }
+            else if(activitiesSolved == 8){
+              this.numBird = 1;
+              this.loadRecord(0);
+            }
+            else if(activitiesSolved == 9){
+              this.selectedValueFirst, this.selectedValueSecond, this.selectedValueThird, this.selectedValueFour, this.selectedValueFifth = undefined;
+              this.deshabilitar = false;
+              this.numBird = 2;
+            }
+            else if(activitiesSolved == 10){
+              this.numBird = 2;
+              this.loadRecord(1);
+            }
+            else if(activitiesSolved == 11){
+              this.selectedValueFirst, this.selectedValueSecond, this.selectedValueThird, this.selectedValueFour, this.selectedValueFifth = undefined;
+              this.deshabilitar = false;
+              this.numBird = 3;
+            }
+            else if(activitiesSolved == 12){
+              this.numBird = 3;
+              this.loadRecord(2);
+            }
+            else {
               this.router.navigateByUrl('map');
             }
             return;

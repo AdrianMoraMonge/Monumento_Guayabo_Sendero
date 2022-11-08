@@ -30,6 +30,7 @@ export class SpeciesListPage implements OnInit {
   numBird: number = 0;
   scrWidth: any;
   sizeCol: number = 2.2;
+  selectedValueBird: string;
 
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?) {
@@ -54,9 +55,9 @@ export class SpeciesListPage implements OnInit {
 
   constructor(private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
     this._routerSub = this.router.events
-      .filter(event => event instanceof NavigationEnd && event.url == '/record')
+      .filter(event => event instanceof NavigationEnd && event.url == '/species-list')
       .subscribe((value) => {
-        //this.confirmTour();
+        this.confirmTour();
     });
     this.getScreenSize();
   }
@@ -74,12 +75,12 @@ export class SpeciesListPage implements OnInit {
   }
 
   back(){
-    this.router.navigateByUrl("map");
+    this.router.navigateByUrl("record");
   }
 
   public async confirmAlert() {
-    if(this.numBird == 0){
-      this.numBird++;
+    if(this.selectedValueBird == undefined){
+      this.presentAlert("Error", "Seleccione el ave desaparecida.");
       return;
     }
     const alert = await this.alertController.create({
@@ -95,13 +96,13 @@ export class SpeciesListPage implements OnInit {
         {
           text: 'Sí, confirmar',
           handler: () => {
-            //this.completeActivity();
+            this.completeActivity(this.selectedValueBird);
           }  
         }
       ]
-  });
+    });
 
-  await alert.present();
+    await alert.present();
   }
 
   async openModal(points: number) {
@@ -110,16 +111,38 @@ export class SpeciesListPage implements OnInit {
       component: SpeciesListModalComponent,
       componentProps: {
         points: points,
-        numBird: 2
+        numBird: this.numBird
       }
     });
     modal.present();
     const {data, role} = await modal.onWillDismiss();
     if(role == "continue"){
-      this.router.navigateByUrl("map");
+      if(this.numBird < 2)
+        this.router.navigateByUrl("record");
+      else
+        this.router.navigateByUrl("result");
       return;
     }
     this.openModal(points);
+  }
+
+  completeActivity(respo){
+    if(this.cookieService.check('idUser')) {
+      this.activitiesService.checkActivity({_idUser: this.cookieService.get('idUser'), answer: respo, id_excercise: (9+this.numBird*2)})
+        .subscribe(res => {
+          let list = res as [{Result}];
+          if(list != null && list.length > 0){
+            let points = list[0].Result;
+            if(points >= 0){
+              this.openModal(points);
+              return;
+            }
+          }
+          this.presentAlert('Error', 'Ocurrió un error, intente de nuevo.');
+      });
+    }
+    else
+      this.router.navigateByUrl('home');
   }
 
   confirmTour(){
@@ -129,7 +152,17 @@ export class SpeciesListPage implements OnInit {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
             let activitiesSolved = list[0].Result;
-            if(activitiesSolved != 5){
+            this.selectedValueBird = undefined;
+            if(activitiesSolved == 8){
+              this.numBird = 0;
+            }
+            else if(activitiesSolved == 10){
+              this.numBird = 1;
+            }
+            else if(activitiesSolved == 12){
+              this.numBird = 2;
+            }
+            else {
               this.router.navigateByUrl('map');
             }
             return;
