@@ -62,11 +62,11 @@
         </ion-item>
 
         <ion-grid>
-          <ion-radio-group value="custom-checked">
+          <ion-radio-group value="firstRadio" [(ngModel)]="selectedValueFirst">
           <ion-row>
             <ion-col *ngFor="let bird of feeding_birds_images; let i = index" size="auto">
               <ion-img class="feedingBirds" src="assets/{{feeding_birds_images[i]}}"></ion-img>
-              <ion-radio class="radioStyle" value={{feeding_birds_text[i]}}></ion-radio>
+              <ion-radio class="radioStyle" [disabled]="deshabilitar" value={{feeding_birds_text[i]}}></ion-radio>
               <ion-text class="textRadio">{{feeding_birds_text[i]}}</ion-text>
             </ion-col>
           </ion-row>
@@ -78,11 +78,11 @@
         </ion-item>
 
         <ion-grid>
-          <ion-radio-group value="custom-checked">
+          <ion-radio-group value="custom-checked" [(ngModel)]="selectedValueSecond">
           <ion-row>
             <ion-col *ngFor="let bird of singing_birds_images; let i = index" size="auto">
               <ion-img class="feedingBirds" src="assets/{{singing_birds_images[i]}}"></ion-img>
-              <ion-radio class="radioStyle" value={{singing_birds_text[i]}}></ion-radio>
+              <ion-radio class="radioStyle" [disabled]="deshabilitar" value={{singing_birds_text[i]}}></ion-radio>
               <ion-text class="textRadio">{{singing_birds_text[i]}}</ion-text>
             </ion-col>
           </ion-row>
@@ -94,11 +94,11 @@
         </ion-item>
 
         <ion-grid>
-          <ion-radio-group value="custom-checked">
+          <ion-radio-group value="custom-checked" [(ngModel)]="selectedValueThird">
           <ion-row>
             <ion-col *ngFor="let bird of habits_birds_images; let i = index" size="auto">
               <ion-img class="feedingBirds" src="assets/{{habits_birds_images[i]}}"></ion-img>
-              <ion-radio class="radioStyle" value={{habits_birds_text[i]}}></ion-radio>
+              <ion-radio class="radioStyle" [disabled]="deshabilitar" value={{habits_birds_text[i]}}></ion-radio>
               <ion-text class="textRadio">{{habits_birds_text[i]}}</ion-text>
             </ion-col>
           </ion-row>
@@ -110,11 +110,11 @@
         </ion-item>
 
         <ion-grid>
-          <ion-radio-group value="custom-checked">
+          <ion-radio-group value="custom-checked" [(ngModel)]="selectedValueFour">
           <ion-row>
             <ion-col *ngFor="let bird of bird_functions_images; let i = index" size="auto">
               <ion-img class="feedingBirds" src="assets/{{bird_functions_images[i]}}"></ion-img>
-              <ion-radio class="radioStyle" value={{bird_functions_text[i]}}></ion-radio>
+              <ion-radio class="radioStyle" [disabled]="deshabilitar" value={{bird_functions_text[i]}}></ion-radio>
               <ion-text class="textRadio">{{bird_functions_text[i]}}</ion-text>
             </ion-col>
           </ion-row>
@@ -126,11 +126,11 @@
         </ion-item>
 
         <ion-grid>
-          <ion-radio-group value="custom-checked">
+          <ion-radio-group value="custom-checked" [(ngModel)]="selectedValueFifth">
           <ion-row>
             <ion-col *ngFor="let bird of bird_relevance_images; let i = index" size="auto">
               <ion-img class="feedingBirds" src="assets/{{bird_relevance_images[i]}}"></ion-img>
-              <ion-radio class="radioStyle" value={{bird_relevance_text[i]}}></ion-radio>
+              <ion-radio class="radioStyle" [disabled]="deshabilitar" value={{bird_relevance_text[i]}}></ion-radio>
               <ion-text class="textRadio">{{bird_relevance_text[i]}}</ion-text>
             </ion-col>
           </ion-row>

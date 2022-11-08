@@ -25,12 +25,14 @@ export class SeventhActivityPage implements OnInit {
   colors: string[] = ["firstBirdColor", "secondBirdColor", "thirdBirdColor"];
   textButton: string[] = ["Siguiente", "Siguiente", "Listo"];
   user_response: string = "";
+  respuestas: boolean[] = [true, true, true];
+  correctas: string[] = ["Predice muerte y clima", "Representa a líderes", "Anuncia buenas noticias"];
 
   constructor(private fb: FormBuilder, private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
     this._routerSub = this.router.events
       .filter(event => event instanceof NavigationEnd && event.url == '/seventh-activity')
       .subscribe((value) => {
-        //this.confirmTour();
+        this.confirmTour();
     });
 
     this.codeForm = this.fb.group({
@@ -87,7 +89,8 @@ export class SeventhActivityPage implements OnInit {
       cssClass: 'remember_modal',
       component: SeventhActivityModalComponent,
       componentProps: {
-        points: _points
+        points: _points,
+        respuestas: this.respuestas
       }
     });
     modal.present();
@@ -105,6 +108,7 @@ export class SeventhActivityPage implements OnInit {
       if(this.numBird == 1 && response == "representa a lideres")
         response = "representa a líderes";
       this.user_response += response.charAt(0).toUpperCase() + response.slice(1);
+      this.respuestas[this.numBird] = this.correctas[this.numBird] == (response.charAt(0).toUpperCase() + response.slice(1));
       if(this.numBird < 2) {
         this.user_response += "-";
         this.numBird++;
