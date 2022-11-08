@@ -17,4 +17,8 @@ export class ActivitiesService {
   numberActivitiesSolved(token){ 
     return this.http.post(this.URL_API + '/numberActivitiesSolved', token);
   }
+
+  getScore(token){ 
+    return this.http.post(this.URL_API + '/getScore', token);
+  }
 }

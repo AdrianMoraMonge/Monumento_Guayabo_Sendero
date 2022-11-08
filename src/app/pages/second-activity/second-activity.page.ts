@@ -26,6 +26,8 @@ export class SecondActivityPage implements OnInit {
   colors: string[] = ["firstBirdColor", "secondBirdColor", "thirdBirdColor"];
   textButton: string[] = ["Siguiente", "Siguiente", "Listo"];
   audio_birds: string[] = ["first_bird_audio.mp3", "second_bird_audio.mp3", "third_bird_audio.mp3"];
+  respuestas: boolean[] = [true, true, true];
+  correctas: string[] = ["Grave", "Potente", "Agudo"];
   numBird: number = 0;
   user_response: string = "";
   private _routerSub = Subscription.EMPTY;
@@ -90,7 +92,8 @@ export class SecondActivityPage implements OnInit {
       cssClass: 'remember_modal',
       component: SecondActivityModalComponent,
       componentProps: {
-        points: _points
+        points: _points,
+        respuestas: this.respuestas
       }
     });
     modal.present();
@@ -106,6 +109,7 @@ export class SecondActivityPage implements OnInit {
     if(this.cookieService.check('idUser')) {
       let response: string = ((this.codeForm.value.code).trim()).toLowerCase();
       this.user_response += response.charAt(0).toUpperCase() + response.slice(1);
+      this.respuestas[this.numBird] = this.correctas[this.numBird] == (response.charAt(0).toUpperCase() + response.slice(1));
       if(this.numBird < 2) {
         this.user_response += "-";
         this.numBird++;

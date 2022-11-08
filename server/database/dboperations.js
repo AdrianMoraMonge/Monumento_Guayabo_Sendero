@@ -42,9 +42,23 @@ async function numberActivitiesSolved(req){
         return -1; /* If it does not work */
     }
 }
+
+async function getScore(req){
+    try {
+        let  pool = await  sql.connect(config);
+        let  user = await  pool.request()
+            .input('id_User', sql.INT, req._idUser)
+            .query("EXEC getScore @idUser = @id_User");
+        let score = user.recordsets;
+        return score;
+    } catch (error) {
+        return -1; /* If it does not work */
+    }
+}
     
 module.exports = {
     addNewUser: addNewUser,
     checkActivity: checkActivity,
-    numberActivitiesSolved: numberActivitiesSolved
+    numberActivitiesSolved: numberActivitiesSolved,
+    getScore: getScore
 }

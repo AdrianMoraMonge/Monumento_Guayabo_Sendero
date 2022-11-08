@@ -10,19 +10,19 @@
   <ion-item color="none" lines="none">
     <div class="divBirds">
       <ion-text class="textBody firstColor textPosition">Ave 1</ion-text>
-      <ion-text class="textBody firstColor"><br/>Predice muerte y clima</ion-text>
+      <ion-text class="textBody firstColor"><br/>Predice muerte y clima<ion-icon class="resp" *ngIf="this.respuestas[0]" color="success" name="checkmark"></ion-icon><ion-icon *ngIf="!this.respuestas[0]" class="resp" color="danger" name="close"></ion-icon></ion-text>
     </div>
   </ion-item>
   <ion-item color="none" lines="none">
     <div class="divBirds">
       <ion-text class="textBody secondColor textPosition">Ave 2</ion-text>
-      <ion-text class="textBody secondColor"><br/>Representa a líderes</ion-text>
+      <ion-text class="textBody secondColor"><br/>Representa a líderes<ion-icon class="resp" *ngIf="this.respuestas[1]" color="success" name="checkmark"></ion-icon><ion-icon *ngIf="!this.respuestas[1]" class="resp" color="danger" name="close"></ion-icon></ion-text>
     </div>
   </ion-item>
   <ion-item color="none" lines="none">
     <div class="divBirds">
       <ion-text class="textBody thirdColor textPosition">Ave 3</ion-text>
-      <ion-text class="textBody thirdColor"><br/>Anuncia buenas noticias</ion-text>
+      <ion-text class="textBody thirdColor"><br/>Anuncia buenas noticias<ion-icon class="resp" *ngIf="this.respuestas[2]" color="success" name="checkmark"></ion-icon><ion-icon *ngIf="!this.respuestas[2]" class="resp" color="danger" name="close"></ion-icon></ion-text>
     </div>
   </ion-item>
 

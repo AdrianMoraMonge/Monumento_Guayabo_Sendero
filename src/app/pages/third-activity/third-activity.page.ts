@@ -24,6 +24,8 @@ export class ThirdActivityPage implements OnInit {
   colors: string[] = ["Café", "Verde", "Gris", "Rojo", "Amarillo"];
   stateColors: string[][] = [[".svg", ".svg", ".svg", ".svg", ".svg"], [".svg", ".svg", ".svg", ".svg", ".svg"], [".svg", ".svg", ".svg", ".svg", ".svg"]];
   user_response: string[] = ["", "", ""];
+  respuestas: boolean[] = [true, true, true];
+  correctas: string[] = ["Café", "Verde", "Gris"];
   response_colors = "";
 
   @HostListener('window:resize', ['$event'])
@@ -72,12 +74,15 @@ export class ThirdActivityPage implements OnInit {
 
   public async confirmAlert() {
     this.response_colors = "";
+    let index: number = 0;
     for (let res of this.user_response) {
+      this.respuestas[index] = this.correctas[index] == res;
       if(res == "") {
         this.presentAlert('Aviso', 'Asegúrese de escoger un color para cada una.');
         return;
       }
       this.response_colors += "-" + res;
+      index++;
     }
     this.response_colors = this.response_colors.substring(1);
     const alert = await this.alertController.create({
@@ -107,7 +112,8 @@ export class ThirdActivityPage implements OnInit {
       cssClass: 'remember_modal',
       component: ThirdActivityModalComponent,
       componentProps: {
-        points: _points
+        points: _points,
+        respuestas: this.respuestas
       }
     });
     modal.present();

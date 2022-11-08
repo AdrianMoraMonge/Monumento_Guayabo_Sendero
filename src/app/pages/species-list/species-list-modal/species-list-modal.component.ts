@@ -25,6 +25,9 @@ export class SpeciesListModalComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  continue() {
     return this.modalCtrl.dismiss(null, 'continue');
   }
 

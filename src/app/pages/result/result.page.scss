@@ -1,0 +1,203 @@
+ion-content { 
+    --ion-background-color:#E7D7BF; 
+}
+
+ion-toolbar, ion-header {
+    --min-height: 100px;
+}
+
+.header {
+    --background: rgba(175, 210, 139, 0.877);
+}
+
+.arrowIcon {
+    font-size: 35px;
+}
+
+.headerText {
+    font-family: 'Signika' !important;
+    font-size: 1.8em;
+    color: #FBFBFB;
+    margin-left: 3vw;
+}
+
+.my-grid {
+    height: 100% !important;
+}
+
+.parent-row {
+    height: 100% !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.cardBody {
+    background: #FFFFFF;
+    margin: 40px 30px;
+}
+
+.gridHeader {
+    margin-top: 48px;
+}
+
+.bodyTitle {
+    font-family: 'Signika';
+    font-style: normal;
+    font-size: 22px;
+    margin-top: 50px;
+}
+
+.centerTitle {
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.centerSubTitle {
+    margin-left: 2vw;
+    margin-top: 100px;
+}
+
+.orangeColor {
+    color: #E2822E;
+}
+
+.greenColor {
+    color: #5D9331;
+}
+
+.explanatoryText {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-size: 16px;
+    margin: 0 auto;
+    margin-top: 20px;
+    color: #A7A7A7;
+}
+
+.explanatoryTextBold {
+    color: #828282;
+}
+
+.imgBirds {
+    width: 17vw;
+    margin-top: 35px;
+}
+
+.textBird {
+    position: absolute;
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-size: 4vw;
+    color: #828282;
+}
+
+.itemButton {
+    margin: 50px auto 20px;
+    height: 50px;
+    text-transform: none;
+}
+  
+.textButton {
+    font-family: 'Martel Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px;
+    
+    /* identical to box height, or 150% */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.15px;
+  
+    color: #FFFFFF;
+  
+    /* Inside auto layout */
+  
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+@media screen and (min-width: 400px) {
+    .headerText {
+        margin-left: 2.5vw;
+    }
+
+    .bodyTitle {
+        font-size: 6.4vw;
+    }
+
+    .explanatoryText {
+        font-size: 4vw;
+    }
+
+    .itemButton {
+        margin-top: 80px;
+        height: 50px;
+        text-transform: none;
+    }
+}
+
+@media screen and (min-width: 485px) {
+    .itemInput {
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .headerText {
+        margin-left: 2vw;
+        font-size: 2em;
+    }
+
+    .bodyTitle {
+        font-size: 5.8vw;
+    }
+
+    .explanatoryText {
+        font-size: 3.5vw;
+    }
+
+    .imgBirds {
+        width: 90px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .bodyTitle {
+        font-size: 36px;
+    }
+
+    .explanatoryText {
+        font-size: 22px;
+    }
+
+    .textBird {
+        font-size: 22px;
+    }
+
+    .centerSubTitle {
+        margin-left: 10vw;
+    }
+}
+
+@media screen and (min-width: 850px) {
+    .centerSubTitle {
+        margin-left: 15vw;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .centerSubTitle {
+        margin-left: 20vw;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .centerSubTitle {
+        margin-left: 22vw;
+    }
+}

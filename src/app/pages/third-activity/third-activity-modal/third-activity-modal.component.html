@@ -9,15 +9,15 @@
 
   <ion-item color="none" lines="none">
     <ion-img class="circle" src="assets/brown_circle.svg"></ion-img>
-    <ion-text class="textBody firstColor">Ave 1 Café</ion-text>
+    <ion-text class="textBody firstColor">Ave 1 Café<ion-icon class="resp" *ngIf="this.respuestas[0]" color="success" name="checkmark"></ion-icon><ion-icon *ngIf="!this.respuestas[0]" class="resp" color="danger" name="close"></ion-icon></ion-text>
   </ion-item>
   <ion-item color="none" lines="none">
     <ion-img class="circle" src="assets/green_circle.svg"></ion-img>
-    <ion-text class="textBody secondColor">Ave 2 Verde</ion-text>
+    <ion-text class="textBody secondColor">Ave 2 Verde<ion-icon class="resp" *ngIf="this.respuestas[1]" color="success" name="checkmark"></ion-icon><ion-icon *ngIf="!this.respuestas[1]" class="resp" color="danger" name="close"></ion-icon></ion-text>
   </ion-item>
   <ion-item color="none" lines="none">
     <ion-img class="circle" src="assets/gray_circle.svg"></ion-img>
-    <ion-text class="textBody thirdColor">Ave 3 Gris</ion-text>
+    <ion-text class="textBody thirdColor">Ave 3 Gris<ion-icon class="resp" *ngIf="this.respuestas[2]" color="success" name="checkmark"></ion-icon><ion-icon *ngIf="!this.respuestas[2]" class="resp" color="danger" name="close"></ion-icon></ion-text>
   </ion-item>
 
   <ion-item color="none" lines="none">

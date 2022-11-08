@@ -12,7 +12,7 @@ export class FourthActivityModalComponent implements OnInit {
 
   constructor(private modalCtrl: ModalController, public navParams: NavParams) { 
     if(navParams.get("points") == 0){
-      this.textTitle = "Estuviste cerca, ¡tú puedes!"
+      this.textTitle = "Lo siento fallaste, ¡puedes lograrlo!. La respuesta correcta es:"
       this.colorTitle = "danger";
     }
   }
