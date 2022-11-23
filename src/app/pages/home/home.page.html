@@ -38,10 +38,28 @@
   </form>
 
   <ion-item color="none" lines="none">
-    <ion-button class="itemButton" color="darkGreen" (click)="startTour()">
+    <ion-button class="itemButton" color="darkGreen" (click)="setOpen(true)">
       <ion-text class="textButton">Comenzar</ion-text>
     </ion-button>
   </ion-item>
   
   <ion-img class="marginTopEnd" src="assets/Decoration.png"></ion-img>
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar color="statementGreen">
+          <ion-title>Aviso</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Continuar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <p class="introductionText">
+          Las aves que se mostrarán durante el recorrido son para fines didácticos con el objetivo de resolver las actividades, por lo que no todas están presentes en el Monumento Guayabo. Sin embargo, todas son pertenecientes a especies que se encuentran en Costa Rica.
+        </p>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

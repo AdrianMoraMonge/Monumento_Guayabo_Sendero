@@ -199,7 +199,6 @@ export class RecordPage implements OnInit {
           let list = res as [{Result}];
           if(list != null && list.length > 0){
             let activitiesSolved = list[0].Result;
-            console.log(activitiesSolved);
             if(activitiesSolved == 7){
               this.deshabilitar = false;
               this.numBird = 0;
@@ -209,7 +208,7 @@ export class RecordPage implements OnInit {
               this.loadRecord(0);
             }
             else if(activitiesSolved == 9){
-              this.selectedValueFirst, this.selectedValueSecond, this.selectedValueThird, this.selectedValueFour, this.selectedValueFifth = undefined;
+              this.selectedValueFirst = undefined, this.selectedValueSecond = undefined, this.selectedValueThird = undefined, this.selectedValueFour = undefined, this.selectedValueFifth = undefined;
               this.deshabilitar = false;
               this.numBird = 2;
             }
@@ -218,7 +217,7 @@ export class RecordPage implements OnInit {
               this.loadRecord(1);
             }
             else if(activitiesSolved == 11){
-              this.selectedValueFirst, this.selectedValueSecond, this.selectedValueThird, this.selectedValueFour, this.selectedValueFifth = undefined;
+              this.selectedValueFirst = undefined, this.selectedValueSecond = undefined, this.selectedValueThird = undefined, this.selectedValueFour = undefined, this.selectedValueFifth = undefined;
               this.deshabilitar = false;
               this.numBird = 3;
             }

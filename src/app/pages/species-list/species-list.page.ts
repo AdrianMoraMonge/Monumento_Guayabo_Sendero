@@ -120,7 +120,7 @@ export class SpeciesListPage implements OnInit {
       if(this.numBird < 2)
         this.router.navigateByUrl("record");
       else
-        this.router.navigateByUrl("result");
+        this.router.navigateByUrl("map");
       return;
     }
     this.openModal(points);
