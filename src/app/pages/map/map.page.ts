@@ -75,6 +75,30 @@ export class MapPage implements OnInit {
         this.router.navigateByUrl('record');
         break; 
       } 
+      case 8: { 
+        this.router.navigateByUrl('species-list');
+        break; 
+      } 
+      case 9: { 
+        this.router.navigateByUrl('record');
+        break; 
+      } 
+      case 10: { 
+        this.router.navigateByUrl('species-list');
+        break; 
+      } 
+      case 11: { 
+        this.router.navigateByUrl('record');
+        break; 
+      } 
+      case 12: { 
+        this.router.navigateByUrl('species-list');
+        break; 
+      } 
+      case 13: { 
+        this.router.navigateByUrl('result');
+        break; 
+      } 
       default: { 
         //statements; 
         break; 
@@ -91,7 +115,10 @@ export class MapPage implements OnInit {
             let activitiesSolved = list[0].Result;
             if(activitiesSolved >= 0){
               this.next_activity = activitiesSolved;
-              this.current_map = this.maps[activitiesSolved];
+              if(activitiesSolved <= 6)
+                this.current_map = this.maps[activitiesSolved];
+              else if(activitiesSolved <= 13)
+                this.current_map = this.maps[7];
             }
             return;
           }
