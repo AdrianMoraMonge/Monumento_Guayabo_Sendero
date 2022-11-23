@@ -17,6 +17,7 @@ export class HomePage {
   nameForm: FormGroup;
   scrWidth: any;
   smallSize: boolean = false;
+  isModalOpen: boolean = false;
   loading: HTMLIonLoadingElement;
 
   @HostListener('window:resize', ['$event'])
@@ -33,6 +34,14 @@ export class HomePage {
     this.nameForm = this.fb.group({
       name: [null, [Validators.required, Validators.minLength(3)]]
     });
+  }
+
+  setOpen(isOpen: boolean) {
+    if(this.nameForm.valid) {
+      this.isModalOpen = isOpen;
+      if(!isOpen)
+        this.startTour();
+    }
   }
 
   async showLoading() {

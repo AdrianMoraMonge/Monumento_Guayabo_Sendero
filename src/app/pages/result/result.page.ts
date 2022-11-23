@@ -22,7 +22,7 @@ export class ResultPage implements OnInit {
 
   constructor(private activitiesService: ActivitiesService, private alertController: AlertController, private cookieService: CookieService, private modalCtrl: ModalController, private router: Router) {
     this._routerSub = this.router.events
-    .filter(event => event instanceof NavigationEnd && event.url == '/species-list')
+    .filter(event => event instanceof NavigationEnd && event.url == '/result')
     .subscribe((value) => {
       this.confirmTour();
     });
@@ -41,6 +41,23 @@ export class ResultPage implements OnInit {
     await alert.present();
   }
 
+  finish(){
+    this.router.navigateByUrl('final');
+  }
+
+  getScore(){
+    this.activitiesService.getScore({_idUser: this.cookieService.get('idUser')})
+        .subscribe(res => {
+          let list = res as [{Result}];
+          if(list != null && list.length > 0){
+            let score = list[0].Result;
+            this.score = Math.round((score*100)/31);
+            return;
+          }
+          this.presentAlert('Error', 'Ocurrió un error, intente de nuevo.');
+    });
+  }
+
   confirmTour(){
     if(this.cookieService.check('idUser')) {
       this.activitiesService.numberActivitiesSolved({_idUser: this.cookieService.get('idUser')})
@@ -50,7 +67,9 @@ export class ResultPage implements OnInit {
             let activitiesSolved = list[0].Result;
             if(activitiesSolved != 13){
               this.router.navigateByUrl('map');
+              return;
             }
+            this.getScore();
             return;
           }
           this.presentAlert('Error', 'Ocurrió un error, intente de nuevo.');
